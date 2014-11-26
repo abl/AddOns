@@ -1,0 +1,406 @@
+------------------------------------------------------------------------
+r110 | kapulani | 2014-11-25 01:09:41 +0000 (Tue, 25 Nov 2014) | 2 lines
+Changed paths:
+   M /trunk/Options.lua
+
+Options.lua: Update version stamper to 2.11.
+This is really just a big nudge for the Curse packager.
+------------------------------------------------------------------------
+r109 | kapulani | 2014-11-25 00:49:06 +0000 (Tue, 25 Nov 2014) | 14 lines
+Changed paths:
+   M /trunk/Classes/Paladin.lua
+   M /trunk/Classes/Shaman.lua
+   M /trunk/Core.lua
+   M /trunk/State.lua
+
+Paladin.lua
+   Added tier17 set.
+   Added t17 2pc functionality to Exorcism and Hammer of Wrath.
+
+Shaman.lua
+   Fixes for Earthquake, Frost Shock, and Lava Burst using outdated modifier system.
+   This should resolve an issue where the addon simply won't work for you.
+   Fixes for spell costs, hidden passive Primal Wisdom was not accounted for.
+
+Core.lua
+   Implemented and fixed metatables for health and resources, they weren't working.
+
+State.lua
+   Implemented target.health such that we could, if we so desired, predict health loss/gain.
+------------------------------------------------------------------------
+r108 | kapulani | 2014-11-23 20:57:09 +0000 (Sun, 23 Nov 2014) | 35 lines
+Changed paths:
+   M /trunk/Classes/Paladin.lua
+   M /trunk/Classes/Shaman.lua
+   M /trunk/Classes.lua
+   M /trunk/Core.lua
+   M /trunk/Events.lua
+   M /trunk/Options.lua
+   M /trunk/State.lua
+   M /trunk/Targets.lua
+
+Classes.lua:
+   Added support for checking the raid buff tray (i.e., buff.str_agi_int.up is now functional).
+
+Classes/Paladin.lua:
+   Added Execution Sentence aura, Empowered Seal buffs.
+   Blessing of Kings/Might now also show that they are buffing Stats/Mastery.
+   Judgment will now apply the appropriate buff based on your seal.
+   Updated default @Retribution, Buffs action list to recommend Seal of Truth pre-combat.
+   Rebuke is off GCD.
+
+Classes/Shaman.lua:
+   Updated default @Enhancement, AOE action list to recommend LB if glyph of CL is active and there are < 3 targets.
+
+Core.lua
+   Strip names from our raid buff wrappers in ResetState, remove caster info.
+   Update IsUsable() to accept ability.usable as number (spellID) or function.
+
+Events.lua
+   Fixed TTD calculations, they were bad.
+   Will now track TTD for any of your tracked enemies, though we only get UNIT_HEALTH updates about named (i.e., 'target') units.
+   Some preliminary work was done to work around this TTD limitation, but the effort/CPU time is not worth the limited benefit.
+
+Options.lua
+   Next release will be labeled 2.10.
+   Refresh cached criteria if a display is enabled/disabled.
+
+State.lua
+   Added support for seals (seal.truth is boolean) which are stances.
+   Buffs now have a 'caster' value and buff.XX.mine will return true if caster is 'player'.
+   time_to_die uses new TTD tables.
+   buff.XX.name is pulled from the Auras table for normal buffs, GetRaidBuffTrayAuraInfo() for raid buffs.
+   
+Targets.lua
+   Eliminate() will now remove a TTD table as well.
+   Audit() will remove a TTD table for a target who no longer exists.
+------------------------------------------------------------------------
+r107 | kapulani | 2014-11-21 07:33:26 +0000 (Fri, 21 Nov 2014) | 30 lines
+Changed paths:
+   M /trunk/Classes/Paladin.lua
+   M /trunk/Classes/Shaman.lua
+   M /trunk/Classes/Warrior.lua
+   M /trunk/Classes.lua
+   M /trunk/Core.lua
+   M /trunk/Events.lua
+   M /trunk/Hekili.toc
+   M /trunk/State.lua
+
+This is a very alpha update that adds Retribution Paladin support.  Lots of testing is needed!  May cause issues with Shaman module as well.
+
+Classes.lua:
+   Removed a lot of unnecessary loadstring() calls when dynamic functions were not needed.
+   Made AddAbility() a bit more readable by taking table input instead of dynamic entries.
+
+Classes/Paladin.lua:
+   Updated Paladin module to work with current Hekili engine.
+
+Classes/Shaman.lua:
+   Clean up formatting.
+
+Classes/Warrior.lua:
+   Some basic changes to support Warrior at a later date... Won't work yet.
+
+Core.lua:
+   Reset the 'seal' table as needed by the Paladin module.
+   Bugfix for resources that don't regenerate.
+   HasRequiredResources() updated to use new 'spend' model (rather than weird cost tables).
+   UpdateResources() now uses spend, gain (although I'm actually putting resource gains in the handlers).
+
+Events.lua:
+   Made spec.X less labor-intensive per cycle.
+   UpdateGear() will cycle itself every 3 seconds until an initial gear profile can be made.
+
+State.lua:
+   Added Stance() for changing seals, stances.
+   Added Gain() for abilities that generate resources.
+   Added Spend() for abilities that can use add'l resources.
+   Added metatable for State.spec checks.
+------------------------------------------------------------------------
+r106 | kapulani | 2014-11-18 00:57:56 +0000 (Tue, 18 Nov 2014) | 5 lines
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Options.lua
+
+Core.lua:
+ - Improve cooldown info on icon #1, hopefully to prevent issue reported by Jonexe.
+
+Options.lua:
+ - Rebuild UI in the event of a /hekili recover.
+------------------------------------------------------------------------
+r105 | kapulani | 2014-11-12 05:31:02 +0000 (Wed, 12 Nov 2014) | 2 lines
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Options.lua
+
+ - Update Release tagger.
+ - Fix cooldown display for offGCD abilities in first queue slot.
+------------------------------------------------------------------------
+r104 | kapulani | 2014-11-11 23:06:46 +0000 (Tue, 11 Nov 2014) | 4 lines
+Changed paths:
+   M /trunk/Classes/Shaman.lua
+   M /trunk/Classes.lua
+   M /trunk/Core.lua
+   M /trunk/Options.lua
+
+ - Fixed a broken default import string.
+ - Improved error handling for bad import strings.
+ - Added a sanity check at login to detect previously imported bad import strings and eliminate them.
+ - Added '/hekili recover' command in case the addon doesn't recover from error state due to bad import strings.
+------------------------------------------------------------------------
+r103 | kapulani | 2014-11-11 08:00:53 +0000 (Tue, 11 Nov 2014) | 2 lines
+Changed paths:
+   M /trunk/Classes/Shaman.lua
+   M /trunk/Core.lua
+   M /trunk/Options.lua
+   M /trunk/State.lua
+
+ - Updated Enhancement action lists to use Magma Totem w/ multi-targets if primary target is within range.
+ - Improved error handling, visibility for some conditionals.
+------------------------------------------------------------------------
+r102 | kapulani | 2014-11-11 02:10:51 +0000 (Tue, 11 Nov 2014) | 8 lines
+Changed paths:
+   M /trunk/Classes/Shaman.lua
+   M /trunk/Classes.lua
+   M /trunk/Core.lua
+   M /trunk/Options.lua
+   M /trunk/State.lua
+   M /trunk/UI.lua
+
+ - Added version numbers to default strings to help identify when you're running with outdated default displays/action lists.
+ - Updated all default Shaman displays, action lists.
+ - Debug mode cleaned up a little bit, shouldn't confuse the garbage collector any longer.
+ - Cleaned up ProcessHooks() so we only enter data into the queue when an action is chosen.
+ - Added Reload Missing, Reload All buttons to the options interface for both action lists and displays.
+ - Reload button will tell you if the default displays/action lists are newer than your existing lists.
+ - Fixed to show the proper number of buttons when changing the Icons Shown setting.
+ - Added 'cooldown_up' criterion that effectively checks 'cooldown.action.remains == 0' (same as 'cooldown_react').
+------------------------------------------------------------------------
+r101 | kapulani | 2014-11-06 07:49:05 +0000 (Thu, 06 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/State.lua
+
+ - Improve consistency for feigning a single stack of buffs where UnitBuff/Debuff returns a count of 0 (i.e., so Ascendance works).
+------------------------------------------------------------------------
+r100 | kapulani | 2014-11-06 06:54:42 +0000 (Thu, 06 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/State.lua
+
+ - Fixed typo in debuffs metatable that caused the addon to forget which dot/debuff it is dealing with.
+------------------------------------------------------------------------
+r99 | kapulani | 2014-11-05 17:32:01 +0000 (Wed, 05 Nov 2014) | 2 lines
+Changed paths:
+   M /trunk/embeds.xml
+
+embeds.xml
+ - Include the right LibRangeCheck-2.0.lua in the right folder.
+------------------------------------------------------------------------
+r98 | kapulani | 2014-11-05 08:23:25 +0000 (Wed, 05 Nov 2014) | 44 lines
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/Core.lua
+   M /trunk/Events.lua
+   M /trunk/Hekili.lua
+   M /trunk/MultilineEditor.lua
+   M /trunk/Options.lua
+   M /trunk/State.lua
+   M /trunk/Targets.lua
+   M /trunk/UI.lua
+   M /trunk/Utils.lua
+   M /trunk/embeds.xml
+
+*** This is another alpha bugfix commit -- I highly suggest you do *not* download this unless you're specifically interested in alpha testing. ***
+
+State.lua, Core.lua:
+ - We will recycle our tables instead of suddenly eating ~300KB per second for no good reason.  Debug mode is still leaky because I want to go to bed.
+
+.pkgmeta, embeds.xml:
+ - Dump LibCompress since we don't actually use it.
+
+Core.lua:
+ - Hide displays if you login to a class that doesn't have a supported module.
+ - Strip filename/line numbers from conditional script errors.
+ - Correct "Hookrities" -> "Hooks" and never trust Replace in Files again.
+ - Ensure that broken scripts are interpreted as false rather than true.
+ - Make the ProcessHooks, UpdateDisplays, and Audit functions (Targets.lua) resilient so they can be called with C_Timer and function w/o arguments.  For ProcessHooks, we will save our wrapping function rather than making a fresh one every cycle.
+ - ResetState() will now wipe expired data from the existing tables, rather than grabbing fresh tables faster than the garbage collector can figure out what to do.
+ - ProcessHooks() will recycle its tables as well.
+
+Events.lua:
+ - Cache the localized specialization name and its equivalent key to reduce overhead for spec checks later on.
+
+Hekili.lua:
+ - Include LibRangeCheck-2.0 here.
+ - Use local string.format rather than local strformat = string.format for readability.
+
+MultilineEditor.lua:
+ - Add syntax error text to the tooltip for testing purposes.
+
+Options.lua:
+ - When creating a new display, create its C_Timer caller if it doesn't already exist.
+ - Preliminary support for version-stamping of displays, action lists, etc.
+
+State.lua:
+ - Modify all storage metatables to get fresh game data if ResetState() wiped out its stored data.
+ - Use cached SpecializationKey for spec comparisons.
+
+Targets.lua:
+ - Unnecessary futzing with the Audit() function.
+
+UI.lua:
+ - Make ProcessDisplayX callers if they don't exist.
+ - Clean up some function names.
+
+Utils.lua:
+ - Reorganize a bit.
+------------------------------------------------------------------------
+r97 | kapulani | 2014-10-31 19:37:18 +0000 (Fri, 31 Oct 2014) | 18 lines
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/Classes/Warrior.lua
+   M /trunk/Constants.lua
+   M /trunk/Core.lua
+   M /trunk/Options.lua
+   M /trunk/State.lua
+   M /trunk/embeds.xml
+
+Still part of a wave of alpha commits.  I wouldn't download this yet, if I were you.
+ - Fix for renaming actions and hooks through the UI; entries in the left-hand list were not updating properly.
+ - The SimulationCraft importer will now convert "resource" to "resource.current" automatically (and tell you that it did it).
+ - The SimulationCraft importer will now convert "buff.X.react" to "buff.X.up" when no stack comparison is being made (and tell you that it did it).  buff.X.react will return the same value as buff.X.stack.
+ - Fixed buff.X.stack_pct to return an actual percentage instead of 100 or 0.
+ - Added syntax for checking whether a target is within a certain range (i.e., for telling if you can Heroic Leap to them, or throw a Keg at them, etc.):
+    o target.withinX (ex: target.within10) will try to tell you if the target is within 10 yards of you.
+    o target.outsideY (ex: target.outside8) will try to tell you if the target is 8 or more yards from you.
+    o target.rangeAtoB (ex: target.range8to25) will try to tell you if the target is between 8 and 25 yards from you.
+ - Added target.health, supported values are target.health.current, target.health.max, target.health.pct (for now). 
+
+Future Warrior stuff:
+ - Add LibRangeCheck-2.0 to the packager, will help with stuff like Heroic Leap for Warriors.
+ - Fix abilities that generate rage in Classes/Warrior.lua.
+ - Create support for SetDistance(), so that when charging or leaping, we can tell the engine that (we think) you're close to the enemy now.
+ - Insert entry for combo_points in resource_t (there's no "SPELL_POWER_COMBO_POINTS" global var, apparently).
+ - Reset target minimum and maximum range in ResetState().
+ - Rage gains in Advance() will now check to see if you actually have a weapon equipped.
+------------------------------------------------------------------------
+r96 | kapulani | 2014-10-29 21:27:48 +0000 (Wed, 29 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/Hekili.toc
+
+ - Properly include LibCompress as an external.
+------------------------------------------------------------------------
+r95 | kapulani | 2014-10-29 21:17:38 +0000 (Wed, 29 Oct 2014) | 1 line
+Changed paths:
+   M /trunk
+   M /trunk/Hekili.toc
+   D /trunk/Libs
+
+ - Test commit for external Libs.  This will probably break *something*.  You do not want to download this alpha.
+------------------------------------------------------------------------
+r94 | kapulani | 2014-10-29 09:51:02 +0000 (Wed, 29 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+
+ - Another attempt at getting .pkgmeta to work.
+------------------------------------------------------------------------
+r93 | kapulani | 2014-10-29 09:47:06 +0000 (Wed, 29 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+   D /trunk/Libs/EditboxWidget.bak
+   D /trunk/Libs/HekiliCustomEditor.lua
+
+ - Trying again to get .pkgmeta to do its job.
+------------------------------------------------------------------------
+r92 | kapulani | 2014-10-29 09:26:20 +0000 (Wed, 29 Oct 2014) | 16 lines
+Changed paths:
+   M /trunk/Classes/Shaman.lua
+   M /trunk/Classes/Warrior.lua
+   M /trunk/Classes.lua
+   M /trunk/Core.lua
+   M /trunk/Events.lua
+   M /trunk/Options.lua
+   M /trunk/State.lua
+   M /trunk/UI.lua
+
+Fixes:
+ - Update IsKnown() to check special cases for Ascendance in Elemental vs. Enhancement.
+ - Cache UnitClass() upon entering world to reduce overhead for class checking.
+ - Fixed logic order so that minion tracking works properly in CLEU.
+ - Fixed print(nil) issue when importing a bad or complicated SimulationCraft action list.
+ - Fixed '/hekili times' using outdated name for ProcessHooks() test.
+ - Added ConsumeStack() to State.lua for abilities that consume single stacks of a buff.
+ - Added target.moving to the game state.  Will probably use it to rule-out Earthquake during enemy movement.
+ - Maybe, just /maybe/ get the packager to pay attention to .pkgmeta.
+
+Preliminary support features for Warriors:
+ - Classes/Warrior.lua
+ - Capture swing timers in Events.lua for predicting future rage gains.
+ - Added rage generation support to Advance() in Core.lua.
+ - Scan tooltips better for weapon speeds to predict rage gains.
+ - Detect weapon swings in CLEU; we can even check for offhand and multistrike!
+------------------------------------------------------------------------
+r91 | kapulani | 2014-10-27 20:16:32 +0000 (Mon, 27 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/Options.lua
+
+ - Trim all scripts, rather than just the action scripts.
+------------------------------------------------------------------------
+r90 | kapulani | 2014-10-27 19:59:35 +0000 (Mon, 27 Oct 2014) | 4 lines
+Changed paths:
+   M /trunk/Classes/Shaman.lua
+   M /trunk/Classes.lua
+   M /trunk/Core.lua
+   M /trunk/Options.lua
+   M /trunk/State.lua
+
+ - Allow AbilityElements() and AuraElements() to update spell IDs to make changing them a little less clunky.
+ - Lightning Bolt cast time for Elemental is 2.0 seconds, not 2.5.
+ - Fix string.trim issue causing scripts not to update when edited.
+ - Clean up GCD times, cast times, execute times a bit.  May need revisiting.
+------------------------------------------------------------------------
+r89 | kapulani | 2014-10-27 10:01:32 +0000 (Mon, 27 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/Options.lua
+
+ - Fixed "Reload Defaults" creating duplicating default displays that already exist.
+------------------------------------------------------------------------
+r88 | kapulani | 2014-10-27 09:58:02 +0000 (Mon, 27 Oct 2014) | 17 lines
+Changed paths:
+   D /trunk/Actions.lua
+   M /trunk/Classes/Shaman.lua
+   M /trunk/Classes.lua
+   M /trunk/Core.lua
+   M /trunk/Events.lua
+   M /trunk/Hekili.toc
+   D /trunk/Libs/ForAllIndentsAndPurposes
+   M /trunk/Options.lua
+   M /trunk/State.lua
+   M /trunk/Targets.lua
+   M /trunk/UI.lua
+
+ - The options table has been overhauled to highlight more commonly used settings and move more confusing/complex features back a bit.  Additionally, "priority queues" are now referenced as "hooks" since they are simply a feature to hook an action list to a display.  This may reduce confusion between "priority queues" vs. "action lists."
+
+ - Added ability to restore deleted default displays and overwrite changes to modified displays.  (Action lists will be next!)
+
+ - Check for cooldowns by spell ID to resolve name conflicts in deDE.  Wind Shear and Windstrike have the same localized name in German, causing errors when checking for spell info by name.
+
+ - Added T16 caster for Elemental Shamans.
+
+ - Each display's priority queues are triggered on their own timers, so that users with many displays don't hit the "script ran too long" time limit.  Hopefully.
+
+ - Action lists can now be disabled on a list-by-list basis, rather than just when hooked.
+
+ - More efforts to make the right things visible at the right time.
+
+ - Libs/ForAllIndentsAndPurposes removed since we're using the updated and customized version in Formatting.lua.
+
+ - Removed Actions.lua.
+------------------------------------------------------------------------
+r87 | kapulani | 2014-10-20 18:58:01 +0000 (Mon, 20 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+
+ - Try firing ProcessActionLists() and UpdateDisplays() on separate timers to reduce CPU usage per cycle.
+------------------------------------------------------------------------

@@ -1,0 +1,51 @@
+V1.0.11
+* toc bump
+
+V1.0.10
+* toc bump
+
+V1.0.9
+* toc bump
+
+V1.0.8
+* minor changes to make compatible with 5.x
+
+V1.0.7
+* toc bump
+
+V1.0.6
+* Addressed changes to Combat_Log_Event_Unfiltered and strreplace. 
+ 
+V1.0.5a
+* Fixed table wipe issue
+
+V1.0.5
+* Bugfix
+
+V1.0.4 Release
+* Patched combatlog parsing issue
+* Forced silence when solo in a dungeon
+* Added Bloodworms and 2 pesky totems to the ignore list
+
+V1.0.3 Release
+* Added GUI options, found in Interface/Addons panel.
+* Added "Devout Follower" from final boss in Stonecore and many critters found in dungeons to the default ignore list.
+* Changed how the ignore list saves it's data.  Mobs are not case-sensitive anymore.
+* Added code to merge an old ignore list with the new.
+
+* Known bug:  /wp sometimes doesn't bring up the options panel depending on what addons are loaded.  No way that I'm using a variable or function name as another addon, so no idea why. I give up for now.  Use it if it works for you.
+
+
+
+--------------------------------------------------
+
+V1.0 Release
+* Fixed global 'this' issue caused by patch 4.0.1.
+* Fixed cross-server issues.
+* Added code for automatic MainTank detection in raid groups.
+* Added automatic tank detection in LFD groups. No need to use /wp tanks Tanker-Servername anymore, though that command is still there and still adds anyone marked as tank to the list with whoever you say is tanking.
+* Changed format of tanks. Using the example from above, they can be added with or without the spaces between name and server, as long as the dash is there.
+/wp tanks Panzer,Steam-Khaz Modan,Sideswiper
+OR
+/wp tanks Panzer Steam - Khaz Modan Sideswiper
+It will still recognize Panzer, Sideswiper, and Steam - Khaz Modan 

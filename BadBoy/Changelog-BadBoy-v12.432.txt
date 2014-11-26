@@ -1,0 +1,88 @@
+------------------------------------------------------------------------
+r1257 | funkydude | 2014-11-25 15:36:42 +0000 (Tue, 25 Nov 2014) | 1 line
+Changed paths:
+   A /tags/v12.432 (from /trunk:1256)
+
+Tagging as v12.432
+------------------------------------------------------------------------
+r1256 | funkydude | 2014-11-25 15:33:03 +0000 (Tue, 25 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-spam update
+------------------------------------------------------------------------
+r1255 | funkydude | 2014-11-19 04:45:26 +0000 (Wed, 19 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-spam update
+------------------------------------------------------------------------
+r1254 | funkydude | 2014-11-07 09:15:11 +0000 (Fri, 07 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-spam update
+------------------------------------------------------------------------
+r1252 | funkydude | 2014-11-02 16:06:02 +0000 (Sun, 02 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-spam update
+------------------------------------------------------------------------
+r1251 | funkydude | 2014-11-02 14:21:40 +0000 (Sun, 02 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-spam update
+------------------------------------------------------------------------
+r1250 | funkydude | 2014-11-01 14:53:32 +0000 (Sat, 01 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-spam update
+------------------------------------------------------------------------
+r1249 | funkydude | 2014-10-30 09:05:00 +0000 (Thu, 30 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-spam update
+------------------------------------------------------------------------
+r1248 | funkydude | 2014-10-30 08:53:10 +0000 (Thu, 30 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-spam update
+------------------------------------------------------------------------
+r1246 | funkydude | 2014-10-27 15:57:21 +0000 (Mon, 27 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+
+cleanup comments
+------------------------------------------------------------------------
+r1245 | funkydude | 2014-10-27 15:39:34 +0000 (Mon, 27 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+
+Remove old locale string
+------------------------------------------------------------------------
+r1244 | funkydude | 2014-10-27 15:13:33 +0000 (Mon, 27 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+   M /trunk/BadBoy.toc
+
+anti-spam update
+------------------------------------------------------------------------
+r1243 | funkydude | 2014-10-27 14:53:53 +0000 (Mon, 27 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/BadBoy.lua
+
+Remove BNet invite scanning. To my knowledge, Blizzard removed the ability to send messages along with friend invites in v6. Most likely due to abuse by spammers.
+------------------------------------------------------------------------

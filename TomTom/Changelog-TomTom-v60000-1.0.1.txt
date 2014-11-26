@@ -1,0 +1,16 @@
+tag v60000-1.0.1
+85331c3c12e8b8d4dcf3cbe3ac13586364b47729
+Jim Whitehead <jnwhiteh@gmail.com>
+2014-10-26 10:58:00 +0100
+
+Tagged v60000-1.0.1
+
+
+--------------------
+
+Jim Whitehead:
+	- Attempted fix for issue in TomTom_POIIntegration
+	There may still be an issue with floors, please provide clear and direct
+	bug reports if you're able to reproduce a Lua error.
+	- Fix setting waypoints on world map
+	- Fix coordinate placement on world map

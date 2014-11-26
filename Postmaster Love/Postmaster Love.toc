@@ -1,0 +1,6 @@
+## Title: Postmaster Love
+## Interface: 60000
+## Notes: Retrieves money and items sent from "The Postmaster" then deletes the empty mail.
+## Author: Defective
+## Version: 1.0.0
+Postmaster Love.lua

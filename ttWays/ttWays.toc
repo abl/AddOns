@@ -1,0 +1,5 @@
+## Interface: 50400
+## Title: ttWays
+## Notes: Sets custom waypoints for TomTom
+## Author: Kaelynai
+ttWays.lua

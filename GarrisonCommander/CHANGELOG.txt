@@ -1,0 +1,12 @@
+= GarrisonCommander helps you when choosing the right follower for the right mission =
+* 1.1.1
+Fix for those who has MasterPlan installed. Master Plan was breaking GarrisonCommander, this patch fixes it
+* 1.1.0
+Feature: Level added to follower line
+Feature: All counterd traits listed on the same line
+Feature: For "In mission" follower time letf is shown instead of "In mission"
+Feature: Trait related lines are now silver, while abilities related are Blue
+Feature: Mission panel can now optionally be relocked
+Feature: You can select to ignore "busy" followers
+Feature: possible party and success chance with that party
+* 1.0.0 First release

@@ -1,0 +1,10 @@
+------------------------------------------------------------------------
+r32 | thaoky | 2014-10-17 17:04:19 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/.pkgmeta
+   M /trunk/DataStore_Reputations.lua
+   M /trunk/DataStore_Reputations.toc
+   M /trunk/embeds.xml
+
+6.0.001 Commit
+------------------------------------------------------------------------

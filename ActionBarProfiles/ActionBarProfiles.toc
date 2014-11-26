@@ -1,0 +1,31 @@
+## Interface: 60000
+## Title: Action Bar Profiles
+## Author: silencer2k@gmail.com
+## SavedVariables: ActionBarProfilesDB
+## Version: 0.5
+## X-Curse-Packaged-Version: 0.5.3
+## X-Curse-Project-Name: Action Bar Profiles (Saver)
+## X-Curse-Project-ID: action-bar-profiles
+## X-Curse-Repository-ID: wow/action-bar-profiles/mainline
+
+ActionBarProfiles.xml
+
+locales\enUS.lua
+locales\ruRU.lua
+
+locales\deDE.lua
+locales\esES.lua
+locales\esMX.lua
+locales\frFR.lua
+locales\itIT.lua
+locales\koKR.lua
+locales\ptBR.lua
+locales\zhCN.lua
+locales\zhTW.lua
+
+ActionBarProfiles.lua
+
+GUI.xml
+GUI.lua
+GUISave.xml
+GUISave.lua

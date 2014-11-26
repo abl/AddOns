@@ -1,0 +1,12 @@
+## Interface: 60000
+## Title: FreebTip
+## Notes: Custom GameTooltip
+## Version: 2.7.6
+## Author: Freebaser
+## OptionalDeps: IDCard
+## SavedVariables: FreebTipDB
+
+tip.lua
+anchor.lua
+tipicons.lua
+FreebTip_Multi.xml

@@ -1,0 +1,12 @@
+tag v1.10
+feba83051bee026fef7cca37537e69e21d40da3b
+Znuff <znuffy@gmail.com>
+2014-11-26 05:39:31 +0200
+
+tagging as v1.10
+
+
+--------------------
+
+Znuff:
+	- We load with Blizzard_GarrisonUI now, thanks Kyle! We register to GARRISON_MISSION_COMPLETE_RESPONSE instead of using a securehook We can now peacefully coexist with Master Plan. Holding Alt while clicking the "view completed missions" button will skip the boring battle animations while keeping everything else.

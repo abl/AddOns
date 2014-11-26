@@ -1,0 +1,40 @@
+## Interface: 60000
+## Title: Raven
+## Notes: Monitors buffs, debuffs and cooldowns and provides timer bars and icons plus helpful notifications
+## Author: Tomber
+## DefaultState: enabled
+## OptionalDependencies: Masque
+## SavedVariables: RavenDB
+## Version: r333
+## X-Curse-Packaged-Version: r333
+## X-Curse-Project-Name: Raven
+## X-Curse-Project-ID: raven
+## X-Curse-Repository-ID: wow/raven/mainline
+
+#@no-lib-strip@
+embeds.xml
+#@end-no-lib-strip@
+
+Localizations\enUS.lua
+
+Main.lua
+Profile.lua
+Conditions.lua
+Bars.lua
+Cancel.lua
+Nest.lua
+
+Presets\DeathKnight.lua
+Presets\Druid.lua
+Presets\Hunter.lua
+Presets\Mage.lua
+Presets\Monk.lua
+Presets\Paladin.lua
+Presets\Priest.lua
+Presets\Rogue.lua
+Presets\Shaman.lua
+Presets\Warlock.lua
+Presets\Warrior.lua
+Presets\Pets.lua
+Presets\Racials.lua
+Presets\General.lua

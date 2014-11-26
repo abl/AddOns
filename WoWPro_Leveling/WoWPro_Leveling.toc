@@ -1,0 +1,20 @@
+## Interface: 60000
+## Title: |cffFF9900WoW-|r|cff46921APro|r Leveling
+## Notes: Leveling guides created by the WoW-Pro Community
+## Author: Jiyambi
+## Dependencies: WoWPro
+## Version: 6.0.3F
+## X-Category: Quest
+## X-License: Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+
+
+WoWPro_Leveling.lua
+
+Alliance\Guides.xml
+Neutral\Guides.xml
+Horde\Guides.xml
+
+WoWPro_Leveling_Parser.lua
+WoWPro_Leveling_Config.lua
+WoWPro_Leveling_GuideList.lua
+WoWPro_Leveling_Frames.lua

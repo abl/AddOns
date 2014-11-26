@@ -1,0 +1,15 @@
+------------------------------------------------------------------------
+r36 | thaoky | 2014-10-17 17:03:56 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/DataStore_Mails.toc
+
+6.0.001 Commit
+------------------------------------------------------------------------
+r35 | thaoky | 2014-08-08 14:53:49 +0000 (Fri, 08 Aug 2014) | 3 lines
+Changed paths:
+   M /trunk/DataStore_Mails.lua
+
+- Fixed some problems related to merged realms, it should now work without problems anymore.
+- Fixed issues where mail attachments (sent or returned) could be saved twice in the recipient's mailbox.
+
+------------------------------------------------------------------------

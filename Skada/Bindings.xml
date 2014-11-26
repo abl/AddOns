@@ -1,0 +1,11 @@
+<Bindings>
+	<Binding name="SKADA_TOGGLE" header="Skada" category="ADDONS">
+		Skada:ToggleWindow()
+	</Binding>
+	<Binding name="SKADA_RESET" category="ADDONS">
+		Skada:Reset()
+	</Binding>
+	<Binding name="SKADA_NEWSEGMENT" category="ADDONS">
+		Skada:NewSegment()
+	</Binding>
+</Bindings>

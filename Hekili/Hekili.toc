@@ -1,0 +1,28 @@
+## Interface: 60000
+## Version: 2.0
+## Title: Hekili
+## Author: Hekili
+## Notes: Hekili with support for in-game modifications.
+## SavedVariables: HekiliDB
+## X-Curse-Packaged-Version: r110
+## X-Curse-Project-Name: Hekili
+## X-Curse-Project-ID: hekili
+## X-Curse-Repository-ID: wow/hekili/mainline
+
+embeds.xml
+
+Hekili.lua
+Utils.lua
+Formatting.lua
+MultilineEditor.lua
+Constants.lua
+State.lua
+Classes.lua
+Classes\Shaman.lua
+Classes\Paladin.lua
+# Classes\Warrior.lua
+Events.lua
+Targets.lua
+Options.lua
+UI.lua
+Core.lua

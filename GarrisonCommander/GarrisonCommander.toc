@@ -1,0 +1,28 @@
+## Interface: 60000
+## Title: GarrisonCommander
+## Notes: Helps you when choosing the right follower for the right mission
+## Notes-itIT: Ti aiuta a scegliere il giusto seguace per la giusta missione
+## Author: Alar of Daggerspine
+## Version: 1.1.1 ab8f444
+## X-Version: 1.1.1
+## X-Revision: ab8f444
+## eMail: alar@aspide.it
+## URL: http://wow.aspide.it
+## OptionalDeps: AlarArtRemover
+## DefaultState: Enabled
+## SavedVariables: dbGAC
+## X-ID: GAC
+## X-Database:dbGAC
+## X-Category: Garrison
+## X-License: GPL v3
+## X-eMail: alar@aspide.it
+## X-Date: 2014-11-24T21:35:49Z
+## X-Embeds:
+## X-Curse-Packaged-Version: 1.1.1
+## X-Curse-Project-Name: GarrisonCommander
+## X-Curse-Project-ID: garrisoncommander
+## X-Curse-Repository-ID: wow/garrisoncommander/mainline
+embeds.xml
+localization.lua
+GarrisonCommander.xml
+RelNotes.lua

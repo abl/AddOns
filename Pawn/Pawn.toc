@@ -1,0 +1,32 @@
+﻿## Interface: 60000
+## Title: Pawn
+## Version: 1.9.7
+## Notes: Pawn calculates scores for items that let you easily see which one is better for you.
+## OptionalDependencies: AtlasLoot, EQCompare, EquipCompare, LinkWrangler, MobInfo2, MultiTips, Outfitter
+## SavedVariables: PawnCommon
+## SavedVariablesPerCharacter: PawnOptions, PawnStarterScaleProviderOptions
+
+## Title-zhTW: [裝備比較]Pawn
+## Notes-zhTW: 計算屬性ep值並給予較好的建議，其他還有珠寶的建議以及重鑄的建議..等，也有裝備屬性比較介面。
+
+## Title-ruRU: |cff00ff00Pawn|r Русская Версия
+
+VgerCore\VgerCore.lua
+
+Core.lua
+Localization.lua
+Localization.deDE.lua
+Localization.es.lua
+Localization.frFR.lua
+Localization.ptBR.lua
+Localization.ruRU.lua
+Localization.zhCN.lua
+Localization.zhTW.lua
+UIStrings.lua
+TooltipParsing.lua
+Gems.lua
+ItemIDs.lua
+Pawn.lua
+PawnUI.lua
+PawnUI.xml
+StarterScales.lua

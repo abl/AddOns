@@ -1,0 +1,14 @@
+------------------------------------------------------------------------
+r28 | thaoky | 2014-10-17 17:04:12 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/DataStore_Quests.lua
+   M /trunk/DataStore_Quests.toc
+
+6.0.001 Commit
+------------------------------------------------------------------------
+r27 | thaoky | 2014-08-08 14:54:07 +0000 (Fri, 08 Aug 2014) | 1 line
+Changed paths:
+   M /trunk/DataStore_Quests.lua
+
+Fixed tracking of completed quests
+------------------------------------------------------------------------

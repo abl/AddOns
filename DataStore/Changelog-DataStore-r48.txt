@@ -1,0 +1,16 @@
+------------------------------------------------------------------------
+r48 | thaoky | 2014-10-17 17:01:33 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/DataStore.lua
+   M /trunk/DataStore.toc
+
+6.0.001 Commit
+------------------------------------------------------------------------
+r47 | thaoky | 2014-08-08 14:51:53 +0000 (Fri, 08 Aug 2014) | 3 lines
+Changed paths:
+   M /trunk/DataStore.lua
+
+- Read addon version from .toc
+- Current character/guild key can now be used by character/guild based methods
+- added a few methods to support overriding methods
+------------------------------------------------------------------------

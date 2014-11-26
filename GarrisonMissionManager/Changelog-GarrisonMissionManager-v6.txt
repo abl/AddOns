@@ -1,0 +1,8 @@
+2014-11-25  ovolkov  <ovolkov>
+
+[66bfe4fcb06d] [v6]
+* GarrisonMissionManager.txt:
+
+show followers on button mouseover idea
+
+

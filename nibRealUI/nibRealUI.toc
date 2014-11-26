@@ -1,0 +1,23 @@
+## Interface: 60000
+## Title: nib|cffffffffReal|r|cffbf3333UI|r
+## Author: Nibelheim
+## Notes: RealUI core
+## Version: 8.1 r8
+## SavedVariables: nibRealUIDB
+## SavedVariablesPerCharacter: nibRealUICharacter
+## OptionalDeps: Ace3, AceGUI-3.0-SharedMediaWidgets, Bartender4, Grid2, Raven, SharedMedia
+## X-oUF: oUFembed
+
+Libs\Embeds.xml
+
+Locale.xml
+
+Core.lua
+Config.lua
+
+Core.xml
+Modules.xml
+HuD.xml
+Config.xml
+
+Bindings.xml
