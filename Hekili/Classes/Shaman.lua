@@ -117,6 +117,7 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 	AddAura( 'elemental_fusion', 157174, 'duration', 15, 'max_stacks', 2 )
 	AddAura( 'elemental_mastery', 16166, 'duration', 20 )
 	AddAura( 'improved_chain_lightning', 157766, 'duration', 10 )
+	Hekili.Auras[ 'enhanced_chain_lightning' ] = Hekili.Auras[ 'improved_chain_lightning' ] -- alias bc SimC uses both.
 	AddAura( 'flame_shock', 8050, 'duration', 30 )
 	AddAura( 'frost_shock', 8056, 'duration', 8 )
 	AddAura( 'healing_rain', 73920, 'duration', 10 )
@@ -157,7 +158,7 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					cooldown = 90
 				} )
 
-	AddAbility(	'ascendance', 165341,
+	AddAbility(	'ascendance', 165341, 165339,
 				{
 					known = 114049,
 					spend = 0.052,
@@ -179,7 +180,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.01,
 					cast = 2.0,
 					gcdType = 'spell',
-					cooldown = 0
+					cooldown = 0,
+					hostile = true
 				} )
 
 	AddAbility( 'earth_elemental_totem', 2062,
@@ -195,7 +197,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.012,
 					cast = 0,
 					gcdType = 'spell',
-					cooldown = 6
+					cooldown = 6,
+					hostile = true
 				} )
 
 	AddAbility( 'earthquake', 61882, 
@@ -203,7 +206,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.008,
 					cast = 2.5,
 					gcdType = 'spell',
-					cooldown = 10
+					cooldown = 10,
+					hostile = true
 				} )
 
 	AddAbility( 'elemental_blast', 117014,
@@ -211,7 +215,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0,
 					cast = 2.0,
 					gcdType = 'spell',
-					cooldown = 12
+					cooldown = 12,
+					hostile = true
 				} )	
 
 	AddAbility( 'elemental_mastery', 16166,
@@ -243,7 +248,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.137,
 					cast = 0,
 					gcdType = 'spell',
-					cooldown = 4.5
+					cooldown = 4.5,
+					hostile = true
 				} )
 
 	AddAbility( 'flame_shock', 8050,
@@ -251,7 +257,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.012,
 					cast = 0,
 					gcdType = 'spell',
-					cooldown = 6
+					cooldown = 6,
+					hostile = true
 				} )
 
 	AddAbility( 'frost_shock', 8056,
@@ -259,7 +266,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.012,
 					cast = 0,
 					gcdType = 'spell',
-					cooldown = 6
+					cooldown = 6,
+					hostile = true
 				} )
 
 	AddAbility( 'healing_rain', 73920,
@@ -292,7 +300,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.01,
 					cast = 2,
 					gcdType = 'spell',
-					cooldown = 0
+					cooldown = 0,
+					hostile = true
 				} )
 
 	AddAbility( 'lava_burst', 51505,
@@ -301,7 +310,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.005,
 					cast = 2,
 					gcdType = 'spell',
-					cooldown = 8
+					cooldown = 8,
+					hostile = true
 				} )
 
 	AddAbility( 'lava_lash', 60103,
@@ -309,7 +319,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.01,
 					cast = 0,
 					gcdType = 'melee',
-					cooldown = 9
+					cooldown = 9,
+					hostile = true
 				} )
 
 	AddAbility( 'lightning_bolt', 403,
@@ -317,7 +328,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.018,
 					cast = 2.5,
 					gcdType = 'spell',
-					cooldown = 0
+					cooldown = 0,
+					hostile = true
 				} )
 
 	AddAbility( 'lightning_shield', 324,
@@ -333,7 +345,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0,
 					cast = 0,
 					gcdType = 'spell',
-					cooldown = 45
+					cooldown = 45,
+					hostile = true
 				} )
 
 	AddAbility( 'magma_totem', 8190,
@@ -341,7 +354,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.211,
 					cast = 0,
 					gcdType = 'totem',
-					cooldown = 0
+					cooldown = 0,
+					hostile = true
 				} )
 
 	AddAbility( 'searing_totem', 3599,
@@ -349,7 +363,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.03,
 					cast = 0,
 					gcdType = 'totem',
-					cooldown = 0
+					cooldown = 0,
+					hostile = true
 				} )
 
 	AddAbility( 'spiritwalkers_grace', 79206,
@@ -374,7 +389,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.01,
 					cast = 0,
 					gcdType = 'melee',
-					cooldown = 7.5
+					cooldown = 7.5,
+					hostile = true
 				} )
 	
 	AddAbility( 'strike', 73899,
@@ -382,7 +398,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.094,
 					cast = 0,
 					gcdType = 'melee',
-					cooldown = 8
+					cooldown = 8,
+					hostile = true
 				} )
 	
 	AddAbility( 'thunderstorm', 51490,
@@ -390,7 +407,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0,
 					cast = 0,
 					gcdType = 'spell',
-					cooldown = 45
+					cooldown = 45,
+					hostile = true
 				} )
 
 	AddAbility( 'unleash_elements', 73680,
@@ -423,7 +441,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 					spend = 0.01,
 					cast = 0,
 					gcdType = 'melee',
-					cooldown = 7.5
+					cooldown = 7.5,
+					hostile = true
 				} )
 
 				
@@ -452,7 +471,7 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 			ModifyAbility( 'chain_lightning', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
 				if buff.maelstrom_weapon.up then x = ( x - ( x * ( 0.2 * buff.maelstrom_weapon.stack ) ) ) end
-				return x
+				return x * haste
 			end )
 			
 			ModifyAbility( 'chain_lightning', 'spend', function( x )
@@ -467,7 +486,7 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 			ModifyAbility( 'elemental_blast', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
 				if buff.maelstrom_weapon.up then x = ( x - ( x * ( 0.2 * buff.maelstrom_weapon.stack ) ) ) end
-				return x
+				return x * haste
 			end )
 
 			ModifyAbility( 'feral_spirit', 'cooldown', function( x )
@@ -509,7 +528,7 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 			ModifyAbility( 'healing_rain', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
 				if buff.maelstrom_weapon.up then x = ( x - ( x * ( 0.2 * buff.maelstrom_weapon.stack ) ) ) end
-				return x
+				return x * haste
 			end )
 			
 			ModifyAbility( 'healing_rain', 'spend', function( x )
@@ -520,7 +539,7 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 			ModifyAbility( 'healing_surge', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
 				if buff.maelstrom_weapon.up then x = ( x - ( x * ( 0.2 * buff.maelstrom_weapon.stack ) ) ) end
-				return x
+				return x * haste
 			end )
 			
 			ModifyAbility( 'healing_surge', 'spend', function( x )
@@ -542,7 +561,7 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 			ModifyAbility( 'lightning_bolt', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
 				if buff.maelstrom_weapon.up then x = ( x - ( x * ( 0.2 * buff.maelstrom_weapon.stack ) ) ) end
-				return x
+				return x * haste
 			end )
 			
 			ModifyAbility( 'lightning_bolt', 'spend', function( x )
@@ -579,8 +598,7 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 				if buff.echo_of_the_elements.up then return 0 end
 				return x * haste
 			end )
-	
-	
+
 			ModifyAura( 'ascendance', 'id', 114051 )
 			
 			ModifyAura( 'lightning_shield', 'max_stack', 1 )
@@ -589,16 +607,18 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 		elseif self.Specialization == 262 then
 			Hekili.minGCD = 1.5
 
-			ModifyAbility( 'ascendance', 'id', 165339 )
+			ModifyAbility( 'ascendance', 'id', function( x )
+				return 165339
+			end )
 
 			ModifyAbility( 'chain_lightning', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
-				return x
+				return x * haste
 			end )
 			
 			ModifyAbility( 'earthquake', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
-				return x
+				return x * haste
 			end )
 			
 			ModifyAbility( 'earthquake', 'cooldown',  function( x )
@@ -608,7 +628,7 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 	
 			ModifyAbility( 'elemental_blast', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
-				return x
+				return x * haste
 			end )
 	
 			ModifyAbility( 'frost_shock', 'cooldown',  function( x )
@@ -619,20 +639,22 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 
 			ModifyAbility( 'healing_rain', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
-				return x
+				return x * haste
 			end )
 
 			ModifyAbility( 'healing_surge', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
-				return x
+				return x * haste
 			end )
 
 			ModifyAbility( 'lava_burst', 'cast', function( x )
 				if buff.lava_surge.up then return 0
 				elseif buff.ancestral_swiftness.up then return 0 end
-				return x
+				return x * haste
 			end )
+			
 			ModifyAbility( 'lava_burst', 'cooldown', function( x )
+				if buff.lava_surge.up and cast_start > 0 and buff.lava_surge.applied > cast_start then return 0 end
 				if buff.ascendance.up then return 0 end
 				if buff.echo_of_the_elements.up then return 0 end
 				return x
@@ -642,7 +664,7 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 
 			ModifyAbility( 'lightning_bolt', 'cast', function( x )
 				if buff.ancestral_swiftness.up then return 0 end
-				return x
+				return x * haste
 			end )
 			
 			ModifyAbility( 'spiritwalkers_grace', 'cooldown', function( x )
@@ -806,7 +828,6 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 		elseif buff.maelstrom_weapon.up then H:RemoveBuff( 'maelstrom_weapon' ) end
 	end )
 
-
 	AddHandler( 'heroism', Hekili.Abilities[ 'bloodlust' ].handler )
 
 	AddHandler( 'lifeblood', function ()
@@ -816,8 +837,9 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 	AddHandler( 'lava_beam', Hekili.Abilities[ 'chain_lightning' ].handler )
 	
 	AddHandler( 'lava_burst', function ()
-		if buff.lava_surge.up then H:RemoveBuff( 'lava_surge' )  end
+		if buff.lava_surge.up and ( cast_start == 0 or buff.lava_surge.applied < cast_start ) then H:RemoveBuff( 'lava_surge' ) end
 		if buff.echo_of_the_elements.up then H:RemoveBuff( 'echo_of_the_elements' ) end
+		if spec.elemental and buff.lightning_shield.up then H:AddStack( 'lightning_shield', 3600, 1 ) end
 	end )
 	
 	AddHandler( 'lava_lash', function ()
@@ -929,13 +951,13 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 	
 	Hekili.Default( "@Shaman, Buffs", 'actionLists', 2.05, "^1^T^SEnabled^B^SActions^T^N1^T^SEnabled^B^SAbility^Slightning_shield^SScript^S!buff.lightning_shield.up^SName^SLightning~`Shield^t^t^SName^S@Shaman,~`Buffs^SSpecialization^N0^t^^" )
 	
-	Hekili.Default( "@Elemental, Single Target", "actionLists", 2.05, "^1^T^SEnabled^B^SScript^S^SSpecialization^N262^SActions^T^N1^T^SAbility^Sancestral_swiftness^SName^SAncestral~`Swiftness^SScript^S!buff.ascendance.up^SEnabled^B^t^N2^T^SAbility^Sliquid_magma^SName^SLiquid~`Magma^SScript^Spet.searing_totem.remains>=15|pet.fire_elemental_totem.remains>=15^SEnabled^B^t^N3^T^SAbility^Sunleash_flame^SName^SUnleash~`Flame^SScript^Stalent.unleashed_fury.enabled&!buff.ascendance.up^SEnabled^B^t^N4^T^SEnabled^B^SName^SSpiritwalker's~`Grace^SArgs^Smoving=1^SAbility^Sspiritwalkers_grace^SScript^Smoving&buff.ascendance.up^t^N5^T^SAbility^Searth_shock^SName^SEarth~`Shock^SScript^Sbuff.lightning_shield.react=buff.lightning_shield.max_stack^SEnabled^B^t^N6^T^SAbility^Slava_burst^SName^SLava~`Burst^SScript^Sdot.flame_shock.remains>cast_time&(buff.ascendance.up|cooldown_up)^SEnabled^B^t^N7^T^SAbility^Sflame_shock^SName^SFlame~`Shock^SScript^Sdot.flame_shock.remains<=9^SEnabled^B^t^N8^T^SAbility^Searth_shock^SName^SEarth~`Shock~`(1)^SScript^S(set_bonus.tier17_4pc&buff.lightning_shield.react>=15&!buff.lava_surge.up)|(!set_bonus.tier17_4pc&buff.lightning_shield.react>15)^SEnabled^B^t^N9^T^SAbility^Searthquake^SName^SEarthquake^SScript^S!talent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=(1.875+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&buff.elemental_mastery.down&buff.bloodlust.down^SEnabled^B^t^N10^T^SAbility^Searthquake^SName^SEarthquake~`(1)^SScript^S!talent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=1.3*(1.875+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.up|buff.bloodlust.up)^SEnabled^B^t^N11^T^SAbility^Searthquake^SName^SEarthquake~`(2)^SScript^S!talent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=(1.875+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.remains>=10|buff.bloodlust.remains>=10)^SEnabled^B^t^N12^T^SAbility^Searthquake^SName^SEarthquake~`(3)^SScript^Stalent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=((1.3*1.875)+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&buff.elemental_mastery.down&buff.bloodlust.down^SEnabled^B^t^N13^T^SAbility^Searthquake^SName^SEarthquake~`(4)^SScript^Stalent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=1.3*((1.3*1.875)+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.up|buff.bloodlust.up)^SEnabled^B^t^N14^T^SAbility^Searthquake^SName^SEarthquake~`(5)^SScript^Stalent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=((1.3*1.875)+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.remains>=10|buff.bloodlust.remains>=10)^SEnabled^B^t^N15^T^SEnabled^B^SName^SElemental~`Blast^SAbility^Selemental_blast^t^N16^T^SAbility^Sflame_shock^SName^SFlame~`Shock~`(1)^SScript^Stime>60&remains<=buff.ascendance.duration&cooldown.ascendance.remains+buff.ascendance.duration<duration^SEnabled^B^t^N17^T^SAbility^Ssearing_totem^SName^SSearing~`Totem^SScript^S(!talent.liquid_magma.enabled&!totem.fire.active)|(talent.liquid_magma.enabled&pet.searing_totem.remains<=20&!pet.fire_elemental_totem.active&!buff.liquid_magma.up)^SEnabled^B^t^N18^T^SEnabled^B^SName^SSpiritwalker's~`Grace~`(1)^SArgs^Smoving=1^SAbility^Sspiritwalkers_grace^SScript^Smoving&((talent.elemental_blast.enabled&cooldown.elemental_blast.remains=0)|(cooldown.lava_burst.remains=0&!buff.lava_surge.up))^t^N19^T^SEnabled^B^SName^SLightning~`Bolt^SAbility^Slightning_bolt^t^t^SName^S@Elemental,~`Single~`Target^t^^" )
+	Hekili.Default( "@Elemental, Single Target", "actionLists", 2.06, "^1^T^SEnabled^B^SSpecialization^N262^SRelease^N2.05^SScript^S^SActions^T^N1^T^SEnabled^B^SScript^Stime=0&(!talent.liquid_magma.enabled&!totem.fire.active)|(talent.liquid_magma.enabled&pet.searing_totem.remains<=20&!pet.fire_elemental_totem.active&!buff.liquid_magma.up)^SRelease^N2.06^SName^SSearing~`Totem~`(0)^SAbility^Ssearing_totem^t^N2^T^SEnabled^B^SScript^S!buff.ascendance.up^SName^SAncestral~`Swiftness^SAbility^Sancestral_swiftness^t^N3^T^SEnabled^B^SScript^Spet.searing_totem.remains>=15|pet.fire_elemental_totem.remains>=15^SName^SLiquid~`Magma^SAbility^Sliquid_magma^t^N4^T^SEnabled^B^SScript^Stalent.unleashed_fury.enabled&!buff.ascendance.up^SName^SUnleash~`Flame^SAbility^Sunleash_flame^t^N5^T^SEnabled^B^SName^SSpiritwalker's~`Grace^SArgs^Smoving=1^SAbility^Sspiritwalkers_grace^SScript^Smoving&buff.ascendance.up^t^N6^T^SEnabled^B^SScript^Sbuff.lightning_shield.react=buff.lightning_shield.max_stack^SName^SEarth~`Shock^SAbility^Searth_shock^t^N7^T^SEnabled^B^SScript^Sdot.flame_shock.remains>cast_time&(buff.ascendance.up|cooldown_up)^SName^SLava~`Burst^SAbility^Slava_burst^t^N8^T^SEnabled^B^SScript^Sdot.flame_shock.remains<=9^SName^SFlame~`Shock^SAbility^Sflame_shock^t^N9^T^SEnabled^B^SScript^S(set_bonus.tier17_4pc&buff.lightning_shield.react>=15&!buff.lava_surge.up)|(!set_bonus.tier17_4pc&buff.lightning_shield.react>15)^SName^SEarth~`Shock~`(1)^SAbility^Searth_shock^t^N10^T^SEnabled^B^SScript^S!talent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=(1.875+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&buff.elemental_mastery.down&buff.bloodlust.down^SName^SEarthquake^SAbility^Searthquake^t^N11^T^SEnabled^B^SScript^S!talent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=1.3*(1.875+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.up|buff.bloodlust.up)^SName^SEarthquake~`(1)^SAbility^Searthquake^t^N12^T^SEnabled^B^SScript^S!talent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=(1.875+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.remains>=10|buff.bloodlust.remains>=10)^SName^SEarthquake~`(2)^SAbility^Searthquake^t^N13^T^SEnabled^B^SScript^Stalent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=((1.3*1.875)+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&buff.elemental_mastery.down&buff.bloodlust.down^SName^SEarthquake~`(3)^SAbility^Searthquake^t^N14^T^SEnabled^B^SScript^Stalent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=1.3*((1.3*1.875)+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.up|buff.bloodlust.up)^SName^SEarthquake~`(4)^SAbility^Searthquake^t^N15^T^SEnabled^B^SScript^Stalent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=((1.3*1.875)+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.remains>=10|buff.bloodlust.remains>=10)^SName^SEarthquake~`(5)^SAbility^Searthquake^t^N16^T^SEnabled^B^SName^SElemental~`Blast^SAbility^Selemental_blast^t^N17^T^SEnabled^B^SScript^Stime>60&remains<=buff.ascendance.duration&cooldown.ascendance.remains+buff.ascendance.duration<duration^SName^SFlame~`Shock~`(1)^SAbility^Sflame_shock^t^N18^T^SEnabled^B^SScript^S(!talent.liquid_magma.enabled&!totem.fire.active)|(talent.liquid_magma.enabled&pet.searing_totem.remains<=20&!pet.fire_elemental_totem.active&!buff.liquid_magma.up)^SName^SSearing~`Totem^SAbility^Ssearing_totem^t^N19^T^SEnabled^B^SName^SSpiritwalker's~`Grace~`(1)^SArgs^Smoving=1^SAbility^Sspiritwalkers_grace^SScript^Smoving&((talent.elemental_blast.enabled&cooldown.elemental_blast.remains=0)|(cooldown.lava_burst.remains=0&!buff.lava_surge.up))^t^N20^T^SEnabled^B^SName^SLightning~`Bolt^SAbility^Slightning_bolt^t^t^SName^S@Elemental,~`Single~`Target^t^^" )
 	
-	Hekili.Default( "@Elemental, 2-4 Cleave", "actionLists", 2.05, "^1^T^SEnabled^B^SName^S@Elemental,~`2-4~`Cleave^SAbility^Slightning_bolt^SScript^S^SActions^T^N1^T^SEnabled^B^SAbility^Sliquid_magma^SScript^Stotem.fire.remains>=15^SName^SLiquid~`Magma^t^N2^T^SEnabled^B^SAbility^Sancestral_swiftness^SScript^S!buff.ascendance.up^SName^SAncestral~`Swiftness^t^N3^T^SEnabled^B^SName^SEarthquake~`(0)^SAbility^Searthquake^SScript^S!perk.enhanced_chain_lightning.enabled|buff.improved_chain_lightning.up^SCaption^S^t^N4^T^SEnabled^B^SName^SChain~`Lightning^SAbility^Schain_lightning^SScript^Sactive_enemies>2&(perk.enhanced_chain_lightning.enabled&!buff.improved_chain_lightning.up&cooldown.earthquake.remains>=cast_time)^SCaption^SPerk^t^N5^T^SEnabled^B^SAbility^Sunleash_flame^SScript^Stalent.unleashed_fury.enabled&!buff.ascendance.up^SName^SUnleash~`Flame^t^N6^T^SEnabled^B^SName^SSpiritwalker's~`Grace^SArgs^S^SAbility^Sspiritwalkers_grace^SScript^Sbuff.ascendance.up&moving^t^N7^T^SEnabled^B^SAbility^Searth_shock^SScript^Sbuff.lightning_shield.react=buff.lightning_shield.max_stack^SName^SEarth~`Shock^t^N8^T^SEnabled^B^SAbility^Slava_burst^SScript^Sdot.flame_shock.remains>cast_time&(buff.ascendance.up|cooldown_react)^SName^SLava~`Burst^t^N9^T^SEnabled^B^SAbility^Sflame_shock^SScript^Sdot.flame_shock.remains<=9^SName^SFlame~`Shock^t^N10^T^SEnabled^B^SAbility^Searth_shock^SScript^S(set_bonus.tier17_4pc&buff.lightning_shield.react>=15&!buff.lava_surge.up)|(!set_bonus.tier17_4pc&buff.lightning_shield.react>15)^SName^SEarth~`Shock~`(1)^t^N11^T^SEnabled^B^SAbility^Searthquake^SScript^S!talent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=(1.5+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&buff.elemental_mastery.down&buff.bloodlust.down^SName^SEarthquake^t^N12^T^SEnabled^B^SAbility^Searthquake^SScript^S!talent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=1.3*(1.5+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.up|buff.bloodlust.up)^SName^SEarthquake~`(1)^t^N13^T^SEnabled^B^SAbility^Searthquake^SScript^S!talent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=(1.5+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.remains>=10|buff.bloodlust.remains>=10)^SName^SEarthquake~`(2)^t^N14^T^SEnabled^B^SAbility^Searthquake^SScript^Stalent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=((1.3*1.5)+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&buff.elemental_mastery.down&buff.bloodlust.down^SName^SEarthquake~`(3)^t^N15^T^SEnabled^B^SAbility^Searthquake^SScript^Stalent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=1.3*((1.3*1.5)+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.up|buff.bloodlust.up)^SName^SEarthquake~`(4)^t^N16^T^SEnabled^B^SAbility^Searthquake^SScript^Stalent.unleashed_fury.enabled&((1+stat.spell_haste)*(1+(mastery_value*2%4.5))>=((1.3*1.5)+(1.25*0.226305)+1.25*(2*0.226305*stat.multistrike_pct%100)))&target.time_to_die>10&(buff.elemental_mastery.remains>=10|buff.bloodlust.remains>=10)^SName^SEarthquake~`(5)^t^N17^T^SEnabled^B^SName^SElemental~`Blast^SAbility^Selemental_blast^t^N18^T^SEnabled^B^SAbility^Sflame_shock^SScript^Stime>60&remains<=buff.ascendance.duration&cooldown.ascendance.remains+buff.ascendance.duration<duration^SName^SFlame~`Shock~`(1)^t^N19^T^SEnabled^B^SAbility^Ssearing_totem^SScript^S(!talent.liquid_magma.enabled&!totem.fire.active)|(talent.liquid_magma.enabled&pet.searing_totem.remains<=20&!pet.fire_elemental_totem.active&!buff.liquid_magma.up)^SName^SSearing~`Totem^t^N20^T^SEnabled^B^SName^SSpiritwalker's~`Grace~`(1)^SArgs^S^SAbility^Sspiritwalkers_grace^SScript^Smoving&((talent.elemental_blast.enabled&cooldown.elemental_blast.remains=0)|(cooldown.lava_burst.remains=0&!buff.lava_surge.react))^t^N21^T^SEnabled^B^SAbility^Schain_lightning^SScript^Sactive_enemies>1^SName^SChain~`Lightning~`(1)^t^N22^T^SAbility^Slightning_bolt^SScript^S^SName^SLightning~`Bolt^SEnabled^B^t^t^SSpecialization^N262^t^^" )
+	Hekili.Default( "@Elemental, 2-4 Cleave", "actionLists", 2.11, "^1^T^SEnabled^B^SSpecialization^N262^SRelease^N2.05^SName^S@Elemental,~`2-4~`Cleave^SActions^T^N1^T^SEnabled^B^SScript^Stime=0&(!talent.liquid_magma.enabled&!totem.fire.active)|(talent.liquid_magma.enabled&pet.searing_totem.remains<=20&!pet.fire_elemental_totem.active&!buff.liquid_magma.up)^SRelease^N2.06^SAbility^Ssearing_totem^SName^SSearing~`Totem~`(0)^t^N2^T^SEnabled^B^SAbility^Sancestral_swiftness^SName^SAncestral~`Swiftness^SScript^S!buff.ascendance.up^t^N3^T^SEnabled^B^SAbility^Sliquid_magma^SName^SLiquid~`Magma^SScript^Spet.searing_totem.remains>=15|pet.fire_elemental_totem.remains>=15^t^N4^T^SEnabled^B^SName^SEarthquake^SRelease^N2.06^SAbility^Searthquake^SScript^S(buff.improved_chain_lightning.up|!perk.enhanced_chain_lightning.enabled)&active_enemies>=2^t^N5^T^SEnabled^B^SAbility^Sunleash_flame^SName^SUnleash~`Flame^SScript^Stalent.unleashed_fury.enabled&!buff.ascendance.up^t^N6^T^SEnabled^B^SName^SSpiritwalker's~`Grace^SArgs^Smoving=1^SAbility^Sspiritwalkers_grace^SScript^Smoving&buff.ascendance.up^t^N7^T^SEnabled^B^SAbility^Searth_shock^SName^SEarth~`Shock^SScript^Sbuff.lightning_shield.react=buff.lightning_shield.max_stack^t^N8^T^SEnabled^B^SAbility^Slava_burst^SName^SLava~`Burst^SScript^Sdot.flame_shock.remains>cast_time&(buff.ascendance.up|cooldown_up)^t^N9^T^SEnabled^B^SAbility^Sflame_shock^SName^SFlame~`Shock^SScript^Sdot.flame_shock.remains<=9^t^N10^T^SEnabled^B^SAbility^Searth_shock^SName^SEarth~`Shock~`(1)^SScript^S(set_bonus.tier17_4pc&buff.lightning_shield.react>=15&!buff.lava_surge.up)|(!set_bonus.tier17_4pc&buff.lightning_shield.react>15)^t^N11^T^SEnabled^B^SName^SElemental~`Blast^SAbility^Selemental_blast^t^N12^T^SEnabled^B^SAbility^Sflame_shock^SName^SFlame~`Shock~`(1)^SScript^Stime>60&remains<=buff.ascendance.duration&cooldown.ascendance.remains+buff.ascendance.duration<duration^t^N13^T^SEnabled^B^SAbility^Ssearing_totem^SName^SSearing~`Totem^SScript^S(!talent.liquid_magma.enabled&!totem.fire.active)|(talent.liquid_magma.enabled&pet.searing_totem.remains<=20&!pet.fire_elemental_totem.active&!buff.liquid_magma.up)^t^N14^T^SEnabled^B^SName^SSpiritwalker's~`Grace~`(1)^SArgs^Smoving=1^SAbility^Sspiritwalkers_grace^SScript^Smoving&((talent.elemental_blast.enabled&cooldown.elemental_blast.remains=0)|(cooldown.lava_burst.remains=0&!buff.lava_surge.up))^t^N15^T^SEnabled^B^SScript^S!buff.improved_chain_lightning.up^SRelease^N2.06^SAbility^Schain_lightning^SName^SChain~`Lightning^t^N16^T^SEnabled^B^SName^SLightning~`Bolt^SAbility^Slightning_bolt^t^t^SScript^S^t^^" )
 	
-	Hekili.Default( "@Elemental, AOE", "actionLists", 2.05, "^1^T^SEnabled^B^SName^S@Elemental,~`AOE^SSpecialization^N262^SActions^T^N1^T^SAbility^Sancestral_swiftness^SName^SAncestral~`Swiftness^SScript^S!buff.ascendance.up^SEnabled^B^t^N2^T^SAbility^Sliquid_magma^SName^SLiquid~`Magma^SScript^Spet.searing_totem.remains>=15|pet.fire_elemental_totem.remains>=15^SEnabled^B^t^N3^T^SEnabled^B^SName^SEarthquake^SArgs^Scycle_targets=1^SAbility^Searthquake^SScript^S!ticking&(buff.enhanced_chain_lightning.up|level<=90)&active_enemies>=2^t^N4^T^SEnabled^B^SName^SLava~`Beam^SAbility^Slava_beam^t^N5^T^SAbility^Searth_shock^SName^SEarth~`Shock^SScript^Sbuff.lightning_shield.react=buff.lightning_shield.max_stack^SEnabled^B^t^N6^T^SAbility^Sthunderstorm^SName^SThunderstorm^SScript^Sactive_enemies>=10^SEnabled^B^t^N7^T^SAbility^Ssearing_totem^SName^SSearing~`Totem^SScript^S(!talent.liquid_magma.enabled&!totem.fire.active)|(talent.liquid_magma.enabled&pet.searing_totem.remains<=20&!pet.fire_elemental_totem.active&!buff.liquid_magma.up)^SEnabled^B^t^N8^T^SAbility^Schain_lightning^SName^SChain~`Lightning^SScript^Sactive_enemies>=2^SEnabled^B^t^N9^T^SEnabled^B^SName^SLightning~`Bolt^SAbility^Slightning_bolt^t^t^SScript^S^t^^" )
+	Hekili.Default( "@Elemental, AOE", "actionLists", 2.11, "^1^T^SEnabled^B^SSpecialization^N262^SRelease^N2.05^SScript^S^SActions^T^N1^T^SEnabled^B^SName^SSearing~`Totem~`(0)^SRelease^N2.06^SScript^Stime=0&(!talent.liquid_magma.enabled&!totem.fire.active)|(talent.liquid_magma.enabled&pet.searing_totem.remains<=20&!pet.fire_elemental_totem.active&!buff.liquid_magma.up)^SAbility^Ssearing_totem^t^N2^T^SEnabled^B^SName^SAncestral~`Swiftness^SRelease^N2.06^SScript^S!buff.ascendance.up^SAbility^Sancestral_swiftness^t^N3^T^SEnabled^B^SName^SLiquid~`Magma^SRelease^N2.06^SScript^Spet.searing_totem.remains>=15|pet.fire_elemental_totem.remains>=15^SAbility^Sliquid_magma^t^N4^T^SEnabled^B^SName^SEarthquake^SArgs^Scycle_targets=1^SRelease^N2.06^SScript^S!ticking&(buff.improved_chain_lightning.up|level<=90)&active_enemies>=2^SAbility^Searthquake^t^N5^T^SAbility^Slava_beam^SRelease^N2.06^SName^SLava~`Beam^SEnabled^B^t^N6^T^SEnabled^B^SName^SEarth~`Shock^SRelease^N2.06^SScript^Sbuff.lightning_shield.react=buff.lightning_shield.max_stack^SAbility^Searth_shock^t^N7^T^SEnabled^B^SName^SThunderstorm^SRelease^N2.06^SScript^Sactive_enemies>=10&target.within10^SAbility^Sthunderstorm^t^N8^T^SEnabled^B^SName^SSearing~`Totem^SRelease^N2.06^SScript^S(!talent.liquid_magma.enabled&!totem.fire.active)|(talent.liquid_magma.enabled&pet.searing_totem.remains<=20&!pet.fire_elemental_totem.active&!buff.liquid_magma.up)^SAbility^Ssearing_totem^t^N9^T^SEnabled^B^SName^SChain~`Lightning^SRelease^N2.06^SScript^Sactive_enemies>=2^SAbility^Schain_lightning^t^N10^T^SAbility^Slightning_bolt^SRelease^N2.06^SName^SLightning~`Bolt^SEnabled^B^t^t^SName^S@Elemental,~`AOE^t^^" )
 	
-	Hekili.Default( "@Elemental, Cooldowns", "actionLists", 2.05, "^1^T^SEnabled^B^SSpecialization^N262^SAbility^Sbloodlust^SScript^S^SActions^T^N1^T^SAbility^Sbloodlust^SName^SBloodlust^SScript^Starget.health.pct<25|time>0.500^SEnabled^B^t^N2^T^SAbility^Sheroism^SName^SHeroism^SScript^Starget.health.pct<25|time>0.500^SEnabled^B^t^N3^T^SAbility^Sberserking^SName^SBerserking^SScript^S!buff.bloodlust.up&!buff.elemental_mastery.up&(set_bonus.tier15_4pc_caster=1|(buff.ascendance.cooldown_remains=0&(dot.flame_shock.remains>buff.ascendance.duration|level<87)))^SEnabled^B^t^N4^T^SAbility^Sblood_fury^SName^SBlood~`Fury^SScript^Sbuff.bloodlust.up|buff.ascendance.up|((cooldown.ascendance.remains>10|level<87)&cooldown.fire_elemental_totem.remains>10)^SEnabled^B^t^N5^T^SAbility^Selemental_mastery^SName^SElemental~`Mastery^SScript^Saction.lava_burst.cast_time>=1.2^SEnabled^B^t^N6^T^SEnabled^B^SName^SStorm~`Elemental~`Totem^SAbility^Sstorm_elemental_totem^t^N7^T^SAbility^Sfire_elemental_totem^SName^SFire~`Elemental~`Totem^SScript^S!active^SEnabled^B^t^N8^T^SAbility^Sascendance^SName^SAscendance^SScript^Sactive_enemies>1|(dot.flame_shock.remains>buff.ascendance.duration&(target.time_to_die<20|buff.bloodlust.up|time>=60)&cooldown.lava_burst.remains>0)^SEnabled^B^t^t^SName^S@Elemental,~`Cooldowns^t^^" )
+	Hekili.Default( "@Elemental, Cooldowns", "actionLists", 2.14, "^1^T^SEnabled^B^SSpecialization^N262^SRelease^N2.13^SScript^S^SActions^T^N1^T^SEnabled^b^SName^SBloodlust^SRelease^N2.06^SAbility^Sbloodlust^SScript^Starget.health.pct<25|time>0.500^t^N2^T^SEnabled^b^SName^SHeroism^SRelease^N2.06^SAbility^Sheroism^SScript^Starget.health.pct<25|time>0.500^t^N3^T^SEnabled^B^SName^SBerserking^SRelease^N2.06^SAbility^Sberserking^SScript^S!buff.bloodlust.up&!buff.elemental_mastery.up&(set_bonus.tier15_4pc_caster=1|(buff.ascendance.cooldown_remains=0&(dot.flame_shock.remains>buff.ascendance.duration|level<87)))^t^N4^T^SEnabled^B^SName^SBlood~`Fury^SRelease^N2.06^SAbility^Sblood_fury^SScript^Sbuff.bloodlust.up|buff.ascendance.up|((cooldown.ascendance.remains>10|level<87)&cooldown.fire_elemental_totem.remains>10)^t^N5^T^SEnabled^B^SName^SElemental~`Mastery^SRelease^N2.06^SAbility^Selemental_mastery^SScript^Saction.lava_burst.cast_time>=1.2^t^N6^T^SRelease^N2.06^SEnabled^B^SName^SStorm~`Elemental~`Totem^SAbility^Sstorm_elemental_totem^t^N7^T^SEnabled^B^SName^SFire~`Elemental~`Totem^SRelease^N2.06^SAbility^Sfire_elemental_totem^SScript^S!active^t^N8^T^SEnabled^B^SName^SAscendance^SRelease^N2.06^SAbility^Sascendance^SScript^Sactive_enemies>1|(dot.flame_shock.remains>buff.ascendance.duration&(target.time_to_die<20|buff.bloodlust.up|time>0)&cooldown.lava_burst.remains>0)^t^t^SName^S@Elemental,~`Cooldowns^t^^" )
 	
 	
 	
@@ -945,8 +967,8 @@ if (select(2, UnitClass('player')) == 'SHAMAN') then
 	
 	Hekili.Default( "@Enhancement, AOE", 'displays', 2.05, "^1^T^SPrimary~`Icon~`Size^N30^SQueued~`Font~`Size^N12^SPrimary~`Font~`Size^N12^SPrimary~`Caption~`Aura^SFlame~`Shock^Srel^SCENTER^SSpecialization^N263^SSpacing^N15^SQueue~`Direction^SRIGHT^SPvE~`Visibility^Salways^SQueued~`Icon~`Size^N30^SEnabled^B^SQueues^T^N1^T^SEnabled^B^SAction~`List^S@Enhancement,~`Cooldowns^SName^SCooldowns^SScript^Stoggle.cooldowns^t^N2^T^SEnabled^B^SAction~`List^S@Enhancement,~`AOE^SName^SAOE^SScript^S^t^t^SScript^S^SSpecialization~`Group^Sboth^SIcons~`Shown^N3^Sy^N-180^SFont^SABF^SName^S@Enhancement,~`AOE^SPvP~`Visibility^Salways^SPrimary~`Caption^Sratio^Sx^N-45^SAction~`Captions^B^STalent~`Group^N0^t^^" )
 	
-	Hekili.Default( "@Elemental, Primary", 'displays', 2.05, 	"^1^T^SPrimary~`Icon~`Size^N40^SQueued~`Font~`Size^N12^SPrimary~`Font~`Size^N12^SPrimary~`Caption~`Aura^SLightning~`Shield^Srel^SCENTER^SSpecialization^N262^SSpacing^N5^SQueue~`Direction^SRIGHT^SPvE~`Visibility^Salways^SQueued~`Icon~`Size^N40^SEnabled^B^SQueues^T^N1^T^SEnabled^B^SAction~`List^S@Shaman,~`Buffs^SName^SBuffs^SScript^S^t^N2^T^SEnabled^B^SAction~`List^S@Shaman,~`Interrupt^SName^SInterrupt^SScript^Stoggle.interrupts^t^N3^T^SEnabled^B^SAction~`List^S@Elemental,~`Cooldowns^SName^SCooldowns^SScript^Stoggle.cooldowns^t^N4^T^SEnabled^B^SAction~`List^S@Elemental,~`Single~`Target^SName^SSingle~`Target^SScript^Ssingle|(cleave&active_enemies=1)^t^N5^T^SEnabled^B^SAction~`List^S@Elemental,~`2-4~`Cleave^SName^S2-4~`Target~`Cleave^SScript^Scleave&active_enemies>1^t^N6^T^SEnabled^B^SAction~`List^S@Elemental,~`AOE^SName^SAOE^SScript^Saoe^t^t^SScript^S^STalent~`Group^N0^SIcons~`Shown^N5^SFont^SUbuntu~`Condensed^Sy^N-220^Sx^N-90^SName^S@Elemental,~`Primary^SPvP~`Visibility^Salways^SPrimary~`Caption^Sbuff^SRelease^N2.05^SAction~`Captions^B^SMaximum~`Time^N30^t^^" )
+	Hekili.Default( "@Elemental, Primary", 'displays', 2.11, 	"^1^T^SPrimary~`Icon~`Size^N40^SQueued~`Font~`Size^N12^SPrimary~`Font~`Size^N12^SPrimary~`Caption~`Aura^SLightning~`Shield^Srel^SCENTER^SSpecialization^N262^SSpacing^N5^SQueue~`Direction^SRIGHT^SPvE~`Visibility^Salways^SQueued~`Icon~`Size^N40^SEnabled^B^SQueues^T^N1^T^SEnabled^B^SAction~`List^S@Shaman,~`Buffs^SName^SBuffs^SScript^S^t^N2^T^SEnabled^B^SAction~`List^S@Shaman,~`Interrupt^SName^SInterrupt^SScript^Stoggle.interrupts^t^N3^T^SEnabled^B^SAction~`List^S@Elemental,~`Cooldowns^SName^SCooldowns^SScript^Stoggle.cooldowns^t^N4^T^SEnabled^B^SAction~`List^S@Elemental,~`Single~`Target^SName^SSingle~`Target^SScript^Ssingle|(cleave&active_enemies=1)^t^N5^T^SEnabled^B^SAction~`List^S@Elemental,~`2-4~`Cleave^SName^S2-4~`Target~`Cleave^SScript^Scleave&active_enemies>1&active_enemies<5^t^N6^T^SEnabled^B^SAction~`List^S@Elemental,~`AOE^SName^SAOE^SScript^Saoe|(cleave&active_enemies>=5)^t^t^SScript^S^SMaximum~`Time^N30^Sx^N-90^SPrimary~`Caption^Sbuff^Sy^N-220^SIcons~`Shown^N5^SName^S@Elemental,~`Primary^SPvP~`Visibility^Salways^SRelease^N2.05^SFont^SUbuntu~`Condensed^SAction~`Captions^B^STalent~`Group^N0^t^^" )
 	
-	Hekili.Default( "@Elemental, AOE", 'displays', 2.05, "^1^T^SPrimary~`Icon~`Size^N30^SQueued~`Font~`Size^N12^SPrimary~`Font~`Size^N12^SPrimary~`Caption~`Aura^S^Srel^SCENTER^SSpecialization^N262^SSpacing^N15^SQueue~`Direction^SRIGHT^SPvE~`Visibility^Salways^SQueued~`Icon~`Size^N30^SEnabled^B^SQueues^T^N1^T^SEnabled^B^SAction~`List^S@Elemental,~`Cooldowns^SName^SCooldowns^SScript^Stoggle.cooldowns^t^N2^T^SEnabled^B^SAction~`List^S@Elemental,~`AOE^SName^SAOE^SScript^S^t^t^SScript^S^STalent~`Group^N0^SIcons~`Shown^N3^Sy^N-180^Sx^N-45^SName^S@Elemental,~`AOE^SPvP~`Visibility^Salways^SPrimary~`Caption^Stargets^SMaximum~`Time^N30^SAction~`Captions^B^SFont^SArial~`Narrow^t^^" )
+	Hekili.Default( "@Elemental, AOE", 'displays', 2.11, "^1^T^SPrimary~`Icon~`Size^N30^SQueued~`Font~`Size^N12^SPrimary~`Font~`Size^N12^SPrimary~`Caption~`Aura^S^Srel^SCENTER^SSpecialization^N262^SSpacing^N15^SQueue~`Direction^SRIGHT^SPvE~`Visibility^Salways^SQueued~`Icon~`Size^N30^SEnabled^B^SQueues^T^N1^T^SEnabled^B^SAction~`List^S@Elemental,~`Cooldowns^SName^SCooldowns^SScript^Stoggle.cooldowns^t^N2^T^SEnabled^B^SAction~`List^S@Elemental,~`AOE^SName^SAOE^SScript^S^t^t^SScript^S^SMaximum~`Time^N30^Sx^N-45^SPrimary~`Caption^Stargets^Sy^N-180^SIcons~`Shown^N3^SName^S@Elemental,~`AOE^SPvP~`Visibility^Salways^SRelease^N2.05^SFont^SArial~`Narrow^SAction~`Captions^B^STalent~`Group^N0^t^^" )
 	
 end

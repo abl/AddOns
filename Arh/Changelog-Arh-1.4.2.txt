@@ -1,0 +1,17 @@
+------------------------------------------------------------------------
+r73 | oscarucb | 2014-11-21 08:24:43 +0000 (Fri, 21 Nov 2014) | 4 lines
+Changed paths:
+   A /tags/1.4.2 (from /trunk:72)
+
+Tagging as 1.4.2
+
+Update libmapdata
+Should fix ticket 50-52, broken tracking in Frostfire Ridge
+------------------------------------------------------------------------
+r71 | oscarucb | 2014-11-06 19:22:30 +0000 (Thu, 06 Nov 2014) | 2 lines
+Changed paths:
+   M /trunk/arh.lua
+
+fix a quest log taint issue
+
+------------------------------------------------------------------------

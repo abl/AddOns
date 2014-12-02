@@ -1,0 +1,171 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\..\FrameXML\UI.xsd">
+    <Script File="WowheadGarrisonTimer.lua"/>
+    <Frame name="WowheadGarrisonTimer" parent="UIParent" enableKeyboard="true" enableMouse="true" toplevel="true" hidden="true">
+        <Size x="830" y="538"/>
+        <Anchors>
+            <Anchor point="CENTER"/>
+        </Anchors>
+        <Scripts>
+            <OnLoad>
+                tinsert(UISpecialFrames, self:GetName());
+                WowheadGarrisonTimer_OnLoad();
+            </OnLoad>
+        </Scripts>
+        <Layers>
+            <Layer level="BACKGROUND" textureSubLevel="-1">
+                <Texture atlas="GarrLanding-MiddleTile" horizTile="true" vertTile="true">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="25" y="-25"/>
+                        <Anchor point="BOTTOMRIGHT" x="-25" y="25"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="BACKGROUND" textureSubLevel="2">
+                <Texture parentKey="TL" atlas="GarrLanding-upperleft" useAtlasSize="true">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="-2" y="1"/>
+                    </Anchors>
+                </Texture>
+                <Texture parentKey="TR" atlas="GarrLanding-upperright" useAtlasSize="true">
+                    <Anchors>
+                        <Anchor point="TOPRIGHT" y="1"/>
+                    </Anchors>
+                </Texture>
+                <Texture parentKey="BL" atlas="GarrLanding-lowerleft" useAtlasSize="true">
+                    <Anchors>
+                        <Anchor point="BOTTOMLEFT" x="-2" y="-2"/>
+                    </Anchors>
+                </Texture>
+                <Texture parentKey="BR" atlas="GarrLanding-lowerright" useAtlasSize="true">
+                    <Anchors>
+                        <Anchor point="BOTTOMRIGHT" y="-2"/>
+                    </Anchors>
+                </Texture>
+                <Texture atlas="GarrLanding-Top" useAtlasSize="true">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeKey="$parent.TL" relativePoint="TOPRIGHT" y="-1"/>
+                        <Anchor point="TOPRIGHT" relativeKey="$parent.TR" relativePoint="TOPLEFT" y="-1"/>
+                    </Anchors>
+                </Texture>
+                <Texture atlas="GarLanding-Bottom" useAtlasSize="true">
+                    <Anchors>
+                        <Anchor point="BOTTOMLEFT" relativeKey="$parent.BL" relativePoint="BOTTOMRIGHT" y="2"/>
+                        <Anchor point="BOTTOMRIGHT" relativeKey="$parent.BR" relativePoint="BOTTOMLEFT" y="2"/>
+                    </Anchors>
+                </Texture>
+                <Texture atlas="GarLanding-Left" useAtlasSize="true">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" relativeKey="$parent.TL" relativePoint="BOTTOMLEFT" x="2"/>
+                        <Anchor point="BOTTOMLEFT" relativeKey="$parent.BL" relativePoint="TOPLEFT" x="2"/>
+                    </Anchors>
+                </Texture>
+                <Texture atlas="GarLanding-Right" useAtlasSize="true">
+                    <Anchors>
+                        <Anchor point="TOPRIGHT" relativeKey="$parent.TR" relativePoint="BOTTOMRIGHT" y="0"/>
+                        <Anchor point="BOTTOMRIGHT" relativeKey="$parent.BR" relativePoint="TOPRIGHT" y="0"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="BORDER">
+                <Texture parentKey="HeaderBar" atlas="GarrLanding-HeaderBar" useAtlasSize="true">
+                    <Anchors>
+                        <Anchor point="TOP" x="0" y="-36"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+        </Layers>
+        <Frames>
+            <Button parentKey="CloseButton" inherits="UIPanelCloseButton">
+                <Anchors>
+                    <Anchor point="TOPRIGHT" x="-10" y="-10"/>
+                </Anchors>
+            </Button>
+
+            <Frame name="frames" parentKey="frames">
+                <Anchors>
+                    <Anchor point="TOPLEFT"/>
+                    <Anchor point="BOTTOMRIGHT"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="BORDER">
+                        <FontString inherits="QuestFont_Enormous" text="Wowhead Garrison Timer QR Scan">
+                            <Anchors>
+                                <Anchor point="LEFT" relativeKey="$parent.$parent.HeaderBar" x="26"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+                <Frames>
+                    <Frame name="qrInfo" parentKey="qrInfo">
+                        <Size x="255" y="390"/>
+                        <Anchors>
+                            <Anchor point="BOTTOMLEFT" x="80" y="45"/>
+                        </Anchors>
+                        <Frames>
+                            <Button parentKey="qrRefresh" name="qrRefresh" inherits="UIPanelButtonTemplate" text="Refresh QR Code">
+                                <Size x="135" y="25"/>
+                                <Anchors>
+                                    <Anchor point="BOTTOM" x="-10" y="20" relativeTo="$parent" />
+                                </Anchors>
+                                <Scripts>
+                                    <OnClick>
+                                        PlaySound("igMainMenuOptionCheckBoxOn");
+                                        WowheadGarrisonTimer_Refresh();
+                                    </OnClick>
+                                </Scripts>
+                            </Button>
+                        </Frames>
+                        <Layers>
+                            <Layer level="BORDER">
+                                <FontString parentKey="qrText" multiLine="true" wordwrap="true" inherits="GameFontNormalLarge" text="WOWHEAD_GARRISON_INFO" justifyH="MIDDLE" justifyV="MIDDLE">
+                                    <Size x="225" y="356"/>
+                                    <Color r="1" g="1" b="1" a="1" />
+                                    <Anchors>
+                                        <Anchor point="TOPLEFT" relativeTo="$parent" />
+                                    </Anchors>
+                                    <Shadow>
+                                        <Offset x="1" y="1" />
+                                        <Color r="0" g="0" b="0"/>
+                                    </Shadow>
+                                </FontString>
+                            </Layer>
+                        </Layers>
+                    </Frame>
+                    <Frame name="qrWrapper" parentKey="qrWrapper">
+                        <Size x="433" y="420"/>
+                        <Anchors>
+                            <Anchor point="BOTTOMRIGHT" x="-38" y="28"/>
+                        </Anchors>
+                        <Layers>
+                            <Layer level="BACKGROUND">
+                                <Texture atlas="GarrLanding-MissionListBG">
+                                    <Anchors>
+                                        <Anchor point="TOPLEFT" x="-25"/>
+                                        <Anchor point="BOTTOMRIGHT"/>
+                                    </Anchors>
+                                </Texture>
+                            </Layer>
+                        </Layers>
+                        <Frames>
+                            <Frame name="viewFrame" parentKey="viewFrame">
+                                <Layers>
+                                    <Layer>
+                                        <Texture setAllPoints="true">
+                                            <Color r="1.0" g="1.0" b="1.0" a="1.0"/>
+                                        </Texture>
+                                    </Layer>
+                                </Layers>
+                                <Anchors>
+                                    <Anchor point="CENTER" relativeTo="qrWrapper"/>
+                                </Anchors>
+                                <Size>
+                                    <AbsDimension x="128" y="128"/>
+                                </Size>
+                            </Frame>
+                        </Frames>
+                    </Frame>
+                </Frames>
+            </Frame>
+        </Frames>
+    </Frame>
+</Ui>

@@ -1,0 +1,16 @@
+﻿## Interface: 60000
+## Title: RSA [|c5700DBBDMonk|r]
+## Notes: RSA Monk Module. This is needed to announce Monk Spells.
+## Author: Raeli, Xadurk
+## Dependencies: RSA
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: v3.001
+## X-Curse-Project-Name: RSA - Raeli's Spell Announcer
+## X-Curse-Project-ID: rsa
+## X-Curse-Repository-ID: wow/rsa/mainline
+
+## Title-zhTW: RSA [|c5700DBBD武僧|r]
+## Notes-zhTW: RSA 武僧模組。通報武僧的技能。
+
+
+Monk.lua

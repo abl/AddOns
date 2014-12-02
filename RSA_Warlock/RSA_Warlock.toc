@@ -1,0 +1,16 @@
+﻿## Interface: 60000
+## Title: RSA [|c598245abWarlock|r]
+## Notes: RSA Warlock Module. This is needed to announce Warlock Spells.
+## Author: Raeli, Xadurk, Jenneth
+## Dependencies: RSA
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: v3.001
+## X-Curse-Project-Name: RSA - Raeli's Spell Announcer
+## X-Curse-Project-ID: rsa
+## X-Curse-Repository-ID: wow/rsa/mainline
+
+## Title-zhTW: RSA [|c588245ab術士|r]
+## Notes-zhTW: RSA 術士模組。通報術士的技能。
+
+
+Warlock.lua

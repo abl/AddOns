@@ -441,6 +441,8 @@ function Hekili:ResetState()
 	
 	s.now = GetTime()
 	s.offset = 0
+	s.false_start = 0
+	s.cast_start = 0
 	
 	-- A decent start, but assumes our first ability is always aggressive.  Not necessarily true...
 	if self.Class == 'WARRIOR' then
@@ -456,6 +458,7 @@ function Hekili:ResetState()
 		s.buff[ k ].caster = nil
 		s.buff[ k ].count = nil
 		s.buff[ k ].expires = nil
+		s.buff[ k ].applied = nil
 	end
 
 	for k in pairs( s.cooldown ) do
@@ -521,18 +524,19 @@ function Hekili:ResetState()
 	
 	local cast_time, casting = 0, nil
 
-	local spellcast, _, _, _, _, endCast = UnitCastingInfo('player')
+	local spellcast, _, _, _, startCast, endCast = UnitCastingInfo('player')
 	if endCast ~= nil then
+		s.cast_start = startCast / 1000
 		cast_time = ( endCast / 1000 ) - GetTime()
 		casting = FormatKey( spellcast )
 	end
 	
-	local spellcast, _, _, _, _, endCast = UnitChannelInfo('player')
+	local spellcast, _, _, _, startCast, endCast = UnitChannelInfo('player')
 	if endCast ~= nil then
+		s.cast_start = startCast / 1000
 		cast_time = ( endCast / 1000) - GetTime()
 		casting = FormatKey( spellcast )
 	end				
-	
 
 	if cast_time and casting then
 		self:Advance( cast_time )
@@ -606,7 +610,7 @@ function HasRequiredResources( ability )
 			spend = action.spend
 			resource = action.spend_type or Hekili.ClassResource
 		elseif type( action.spend ) == 'function' then
-			spend, resource = action.spend()
+			spend, resource = action.spend( s )
 		end
 
 		local resKey = GetResourceName( resource )
@@ -629,6 +633,8 @@ function H:UpdateResources( ability )
 	local action = H.Abilities[ ability ]
 	
 	if not action then return end
+
+	local s = self.State
 	
 	-- First, spend resources.
 	if action.spend then
@@ -638,7 +644,7 @@ function H:UpdateResources( ability )
 			spend = action.spend
 			resource = action.spend_type or Hekili.ClassResource
 		elseif type( action.spend ) == 'function' then
-			spend, resource = action.spend()
+			spend, resource = action.spend( s )
 		end
 
 		local resKey = GetResourceName( resource )
@@ -658,7 +664,7 @@ function H:UpdateResources( ability )
 			gain = action.gain
 			resource = action.gain_type or Hekili.ClassResource
 		elseif type( action.gain ) == 'function' then
-			gain, resource = action.gain()
+			gain, resource = action.gain( s )
 		end
 
 		local resKey = GetResourceName( resource )

@@ -1,0 +1,15 @@
+﻿## Interface: 60000
+## Title: RSA [|c56FFFFFFPriest|r]
+## Notes: RSA Priest Module. This is needed to announce Priest Spells.
+## Author: Raeli, Xadurk, Jenneth
+## Dependencies: RSA
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: v3.001
+## X-Curse-Project-Name: RSA - Raeli's Spell Announcer
+## X-Curse-Project-ID: rsa
+## X-Curse-Repository-ID: wow/rsa/mainline
+
+## Title-zhTW: RSA [|c57FFFFFF牧師|r]
+## Notes-zhTW: RSA 牧師模組。通報牧師的技能。
+
+Priest.lua

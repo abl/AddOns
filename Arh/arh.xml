@@ -1,0 +1,149 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://www.blizzard.com/wow/ui/ 
+ ..\..\FrameXML\UI.xsd">
+
+<GameTooltip name="Arh_Tooltip" frameStrata="TOOLTIP" hidden="true" inherits="GameTooltipTemplate"/>
+<Frame  name="Arh_MainFrame" parent="UIParent" enableMouse="true" movable="true">
+	<Anchors>
+		<Anchor point="CENTER"/>
+	</Anchors>
+	<Size x="170" y="40"/>
+	<Backdrop bgFile="Interface\Tooltips\UI-Tooltip-Background" edgefile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+		<edgesize val="16"/>
+		<TileSize val="16"/>
+		<backgroundinsets left="4" right="3" top="4" bottom="3"/>
+		<color r="0.2" g="0.2" b="0.2" a="0.7"/>
+	</Backdrop>
+	<Frames>
+		<Frame name="Arh_HudFrame" hidden="true">
+			<Size x="140" y="140"/>
+			<Anchors>
+				<Anchor point="CENTER"/>
+			</Anchors>
+			<Frames>
+				<Frame name="$parent_ArrowFrame">
+					<Size x="25" y="25"/>
+                    <Anchors> <Anchor point="CENTER"/> </Anchors>
+					<Layers>
+						<Layer level="BACKGROUND">
+							<Texture name="$parent_ArrowTexture" file="Interface\Minimap\MinimapArrow.blp">
+								<Size x="32" y="32"/>
+								<Anchors>
+									<Anchor point="TOPLEFT"/>
+									<Anchor point="BOTTOMRIGHT"/>
+								</Anchors>
+							</Texture>
+						</Layer>
+					</Layers>
+				</Frame>
+			</Frames>
+			<Scripts>
+				<OnLoad function="Arh_HudFrame_OnLoad"/>
+				<OnUpdate function="Arh_HudFrame_OnUpdate"/>
+				<OnShow function="Arh_HudFrame_OnShow"/>
+				<OnHide function="Arh_HudFrame_OnHide"/>
+			</Scripts>
+		</Frame>
+
+		<Button name="$parent_ButtonRed" disabled="true">
+			<Size x="30" y="30"/>
+			<Anchors>
+				<Anchor point="TOPLEFT" x="3" y="-5"/>
+			</Anchors>
+			<NormalTexture file="Interface\Minimap\TRACKING\OBJECTICONS">
+				<TexCoords left="0.25" right="0.375" top="0" bottom="0.5"/>
+			</NormalTexture>
+			<PushedTexture file="Interface\Minimap\TRACKING\OBJECTICONS">
+				<TexCoords left="0.625" right="0.75" top="0" bottom="0.5"/>
+			</PushedTexture>
+			<Scripts>
+				<OnMouseDown function="Arh_MainFrame_ButtonRed_OnMouseDown"/>
+				<OnEnter> Arh_ShowTooltip(self) </OnEnter>
+				<OnLeave> Arh_HideTooltip(self) </OnLeave>
+			</Scripts>
+		</Button>
+		<Button name="$parent_ButtonYellow">
+			<Size x="30" y="30"/>
+			<Anchors>
+				<Anchor point="TOPLEFT" x="28" y="-5"/>
+			</Anchors>
+			<NormalTexture file="Interface\Minimap\TRACKING\OBJECTICONS">
+				<TexCoords left="0.375" right="0.5" top="0" bottom="0.5"/>
+			</NormalTexture>
+			<PushedTexture file="Interface\Minimap\TRACKING\OBJECTICONS">
+				<TexCoords left="0.75" right="0.875" top="0" bottom="0.5"/>
+			</PushedTexture>
+			<Scripts>
+				<OnMouseDown function="Arh_MainFrame_ButtonYellow_OnMouseDown"/>
+				<OnEnter> Arh_ShowTooltip(self) </OnEnter>
+				<OnLeave> Arh_HideTooltip(self) </OnLeave>
+			</Scripts>
+  		</Button>
+		<Button name="$parent_ButtonGreen">
+			<Size x="30" y="30"/>
+			<Anchors>
+				<Anchor point="TOPLEFT" x="53" y="-5"/>
+			</Anchors>
+			<NormalTexture file="Interface\Minimap\TRACKING\OBJECTICONS">
+				<TexCoords left="0.5" right="0.625" top="0" bottom="0.5"/>
+			</NormalTexture>
+			<PushedTexture file="Interface\Minimap\TRACKING\OBJECTICONS">
+				<TexCoords left="0.875" right="1" top="0" bottom="0.5"/>
+			</PushedTexture>
+			<Scripts>
+				<OnMouseDown function="Arh_MainFrame_ButtonGreen_OnMouseDown"/>
+				<OnEnter> Arh_ShowTooltip(self) </OnEnter>
+				<OnLeave> Arh_HideTooltip(self) </OnLeave>
+			</Scripts>
+		</Button>
+		<Button name="$parent_ButtonBack">
+			<Size x="30" y="30"/>
+			<Anchors>
+				<Anchor point="TOPLEFT" x="83" y="-5"/>
+			</Anchors>
+			<NormalTexture file="Interface\PaperDollInfoFrame\UI-Character-AmmoSlot">
+				<TexCoords left="0.651" right="1" top="0.159" bottom="0.508"/>
+			</NormalTexture>
+			<Scripts>
+				<OnMouseDown function="Arh_MainFrame_ButtonBack_OnMouseDown"/>
+				<OnEnter> Arh_ShowTooltip(self) </OnEnter>
+				<OnLeave> Arh_HideTooltip(self) </OnLeave>
+			</Scripts>
+		</Button>
+		<Button name="$parent_ButtonDig" inherits="SecureActionButtonTemplate">
+			<Attributes>
+				<Attribute name="type" type="string" value="spell"/>
+				<Attribute name="spell" type="string" value="Survey"/>
+			</Attributes>
+			<Size x="30" y="30"/>
+			<Anchors>
+				<Anchor point="TOPLEFT" x="123" y="-5"/>
+			</Anchors>
+			<NormalTexture file="Interface\Archeology\arch-icon-marker"/>
+			<Scripts>
+				<OnMouseDown function="Arh_MainFrame_ButtonDig_OnMouseDown"/>
+				<OnEnter> Arh_ShowTooltip(self) </OnEnter>
+				<OnLeave> Arh_HideTooltip(self) </OnLeave>
+			</Scripts>
+		</Button>
+		<ArchaeologyDigSiteFrame name="Arh_ArchaeologyDigSites_BattlefieldMinimap" hidden="true">
+		  	<Size x="1002" y="668"/>
+			<Scripts>
+				<OnLoad function="Arh_ArchaeologyDigSites_OnLoad"/>
+				<OnUpdate function="Arh_ArchaeologyDigSites_BattlefieldMinimap_OnUpdate"/>
+				<OnEnter> self:EnableMouse(false) </OnEnter>
+			</Scripts>
+		</ArchaeologyDigSiteFrame>
+	</Frames>
+	<Scripts>
+		<OnLoad function="Arh_MainFrame_OnLoad"/>
+		<OnEvent function="Arh_MainFrame_OnEvent"/>
+		<OnMouseDown function="Arh_MainFrame_OnMouseDown"/>
+		<OnMouseUp function="Arh_MainFrame_OnMouseUp"/>
+		<OnHide function="Arh_MainFrame_OnHide"/>
+		<OnEnter> Arh_ShowTooltip(self) </OnEnter>
+		<OnLeave> Arh_HideTooltip(self) </OnLeave>
+	</Scripts>
+</Frame>
+</Ui> 

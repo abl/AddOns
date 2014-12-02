@@ -1,0 +1,61 @@
+------------------------------------------------------------------------
+r242 | jenneth | 2014-10-19 12:04:55 +0000 (Sun, 19 Oct 2014) | 1 line
+Changed paths:
+   A /tags/v3.001 (from /trunk:241)
+
+Tagging as v3.001
+------------------------------------------------------------------------
+r241 | jenneth | 2014-10-19 11:41:14 +0000 (Sun, 19 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/Paladin/Paladin.lua
+
+(Paladin) no more announcement spam from Devotion Aura + reducing Goak timer to 8 seconds + adding Avenging Wrath's version for Holy spec.
+------------------------------------------------------------------------
+r240 | jenneth | 2014-10-17 23:49:18 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Druid/Druid.lua
+   M /trunk/Options/Options.lua
+
+(Druid) Skull Bash is not entirely removed, so returning it.
+------------------------------------------------------------------------
+r238 | jenneth | 2014-10-17 01:48:24 +0000 (Fri, 17 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/AnnouncementsMonitor.lua
+   M /trunk/Core.lua
+   M /trunk/DeathKnight/DeathKnight.lua
+   M /trunk/DeathKnight/RSA_DeathKnight.toc
+   M /trunk/Druid/Druid.lua
+   M /trunk/Druid/RSA_Druid.toc
+   M /trunk/Hunter/Hunter.lua
+   M /trunk/Hunter/RSA_Hunter.toc
+   M /trunk/Locale-enUS.lua
+   M /trunk/Mage/Mage.lua
+   M /trunk/Mage/RSA_Mage.toc
+   M /trunk/Monk/Monk.lua
+   M /trunk/Monk/RSA_Monk.toc
+   M /trunk/Options/Options.lua
+   M /trunk/Options/RSA_Options.toc
+   M /trunk/Paladin/Paladin.lua
+   M /trunk/Paladin/RSA_Paladin.toc
+   M /trunk/Priest/Priest.lua
+   M /trunk/Priest/RSA_Priest.toc
+   M /trunk/RSA.toc
+   M /trunk/Reminders/RSA_Reminders.toc
+   M /trunk/Rogue/RSA_Rogue.toc
+   M /trunk/Rogue/Rogue.lua
+   M /trunk/Shaman/RSA_Shaman.toc
+   M /trunk/Shaman/Shaman.lua
+   M /trunk/Warlock/RSA_Warlock.toc
+   M /trunk/Warlock/Warlock.lua
+   M /trunk/Warrior/RSA_Warrior.toc
+   M /trunk/Warrior/Warrior.lua
+
+Moving beta files to mainline.
+------------------------------------------------------------------------
+r237 | jenneth | 2014-04-12 19:33:25 +0000 (Sat, 12 Apr 2014) | 1 line
+Changed paths:
+   M /trunk/Monk/Monk.lua
+
+(Monk) Fixing tickets 270, 271.
+------------------------------------------------------------------------

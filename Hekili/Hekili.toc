@@ -4,7 +4,7 @@
 ## Author: Hekili
 ## Notes: Hekili with support for in-game modifications.
 ## SavedVariables: HekiliDB
-## X-Curse-Packaged-Version: r110
+## X-Curse-Packaged-Version: r123
 ## X-Curse-Project-Name: Hekili
 ## X-Curse-Project-ID: hekili
 ## X-Curse-Repository-ID: wow/hekili/mainline

@@ -1,0 +1,16 @@
+﻿## Interface: 60000
+## Title: RSA [|c60C98D57Warrior|r]
+## Notes: RSA Warrior Module. This is needed to announce Warrior Spells.
+## Author: Raeli, Xadurk
+## Dependencies: RSA
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: v3.001
+## X-Curse-Project-Name: RSA - Raeli's Spell Announcer
+## X-Curse-Project-ID: rsa
+## X-Curse-Repository-ID: wow/rsa/mainline
+
+## Title-zhTW: RSA [|c59C98D57戰士|r]
+## Notes-zhTW: RSA 戰士模組。通報戰士的技能。
+
+
+Warrior.lua

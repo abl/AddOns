@@ -1,0 +1,10 @@
+## Interface: 60000
+## Title: Wowhead Garrison Timer
+## Version: 1.0.8b
+## Author: Wowhead
+## X-Website: http://www.wowhead.com
+## Notes: Generate a QR code with Garrison Mission and Work Order timers, to be imported by the Wowhead Garrison Timer app
+
+LibStud.lua
+qrencode.lua
+WowheadGarrisonTimer.xml

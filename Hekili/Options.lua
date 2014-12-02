@@ -294,6 +294,7 @@ function Hekili:NewDisplayOption( key )
 					end
 					
 					self.DB.profile.displays[ dispID ] = import
+          self.DB.profile.displays[ dispID ].Name = self.Defaults[ defaultID ].name
 					self.DB.profile.displays[ dispID ].Release = self.Defaults[ defaultID ].version
 					self:RefreshOptions()
 					self:LoadScripts()
@@ -937,6 +938,7 @@ function Hekili:NewActionListOption( index )
 					end
 					
 					self.DB.profile.actionLists[ listID ] = import
+          self.DB.profile.actionLists[ listID ].Name = self.Defaults[ defaultID ].name
 					self.DB.profile.actionLists[ listID ].Release = self.Defaults[ defaultID ].version
 					self:RefreshOptions()
 					self:LoadScripts()
@@ -1330,6 +1332,7 @@ function Hekili:GetOptions()
 									
 									if import then
 										self.DB.profile.displays[ index ] = import
+                    self.DB.profile.displays[ index ].Name = default.name
 										self.DB.profile.displays[ index ].Release = default.version
 										
 										if not Hekili[ 'ProcessDisplay' .. index ] then
@@ -1378,7 +1381,9 @@ function Hekili:GetOptions()
 										end
 									
 										self.DB.profile.displays[ index ] = import
+										self.DB.profile.displays[ index ].Name = default.name
 										self.DB.profile.displays[ index ].Release = default.version
+                    
 										
 										if not Hekili[ 'ProcessDisplay' .. index ] then
 											Hekili[ 'ProcessDisplay' .. index ] = function()
@@ -1468,6 +1473,7 @@ function Hekili:GetOptions()
 									
 									if import then
 										self.DB.profile.actionLists[ index ] = import
+										self.DB.profile.actionLists[ index ].Name = default.name
 										self.DB.profile.actionLists[ index ].Release = default.version
 									else
 										Hekili:Print("Unable to import " .. default.name .. ".")
@@ -1502,6 +1508,7 @@ function Hekili:GetOptions()
 									
 									if import then
 										self.DB.profile.actionLists[ index ] = import
+										self.DB.profile.actionLists[ index ].Name = default.name
 										self.DB.profile.actionLists[ index ].Release = default.version
 									else
 										Hekili:Print("Unable to import " .. default.name .. ".")
@@ -2202,7 +2209,7 @@ function Hekili:SetOption( info, input )
 				if option == 'Move' then
 					local placeholder = table.remove( display.Queues, hookID )
 					table.insert( display.Queues, input, placeholder )
-					RebuildOptions, RebuildCache, RebuildScripts, Select = true, true, true, 'P'..input
+					Rebuild, Select = true, 'P'..input
 				
 				elseif option == 'Script' then
 					hook[ option ] = input:trim()
@@ -2341,7 +2348,7 @@ function Hekili:SetOption( info, input )
 					action[ option ] = nil
 					local placeholder = table.remove( list.Actions, actID )
 					table.insert( list.Actions, input, placeholder )
-					RebuildScripts, RebuildOptions, Select = true, true, 'A'..input
+					Rebuild, Select = true, 'A'..input
 				
 				elseif option == 'Script' or option == 'Args' then
 					input = input:trim()

@@ -1,0 +1,32 @@
+tag 2.0.9.7
+fc175dd73a158d74de64bbc8b1437f42384bfa58
+Benjamin Staneck <staneck@gmail.com>
+2014-11-10 21:26:02 +0100
+
+
+
+--------------------
+
+Infus:
+	- Fix upgrading broken by multi-selecting talents change
+	- Always initialize charges in WatchSpellCooldown
+	Instead of only doing it if the ability is on cooldown, since that
+	then meant that the WeakAuras.GetSpellCharges returned a wrong
+	value until the ability was used.
+	
+	Ticket-Number: 147
+	- Load options: Also merge class setting if multiple auras are selected
+	With one aura selected the talent spec/talents load conditions show
+	the specs/talents of the selected class. This didn't work if
+	multiple classes where selected. This patch fixes this if all auras
+	have the same class selected.
+	- Multi select talents
+	Patch by pnutbutter
+	- Guard against nil custom text functions
+	Ticket-number: 44
+	- Fix another nil error in new layouting code
+	This simplfies the code to immediately pick the display, so
+	that it is guranteed to exist. The old code tried to also work
+	in cases where we are still loading auras. This now doesn't work
+	anymore, but the code is also much simpler.
+	- Fix yOffset being nil error for invisible auras

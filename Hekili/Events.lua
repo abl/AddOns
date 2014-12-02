@@ -5,6 +5,7 @@ local H = Hekili
 
 local FormatKey = H.Utils.FormatKey
 local GetSpecializationInfo = H.Utils.GetSpecializationInfo
+local GetSpecializationKey = H.Utils.GetSpecializationKey
 
 
 function Hekili:UPDATE_BINDINGS()
@@ -43,13 +44,12 @@ end
 function Hekili:PLAYER_ENTERING_WORLD()
 	self.Class = select(2, UnitClass( 'player' ) )
 	self.Specialization, self.SpecializationName = GetSpecializationInfo( GetSpecialization() )
-	self.SpecializationKey = FormatKey( self.SpecializationName )
 	
 	for k,v in pairs( self.State.spec ) do
 		self.State.spec[ k ] = nil
 	end
 	
-	self.State.spec[ self.SpecializationKey ] = true
+	self.State.spec[ GetSpecializationKey( self.Specialization ) ] = true
 	
 	self.GUID = UnitGUID("player")
 
@@ -82,13 +82,12 @@ end
 function H:ACTIVE_TALENT_GROUP_CHANGED()
 	
 	self.Specialization, self.SpecializationName = GetSpecializationInfo( GetSpecialization() )
-	self.SpecializationKey = FormatKey( self.SpecializationName )
 
 	for k,v in pairs( self.State.spec ) do
 		self.State.spec[ k ] = nil
 	end
 	
-	self.State.spec[ self.SpecializationKey ] = true
+	self.State.spec[ GetSpecializationKey( self.Specialization ) ] = true
 	
 	if self.SetClassModifiers then self:SetClassModifiers() end
 

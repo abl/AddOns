@@ -1,11 +1,11 @@
 ## Interface: 60000
-## X-Curse-Packaged-Version: v6
+## X-Curse-Packaged-Version: v9
 ## X-Curse-Project-Name: Garrison Mission Manager
 ## X-Curse-Project-ID: garrison-mission-manager
 ## X-Curse-Repository-ID: wow/garrison-mission-manager/mainline
 
 ## Title: Garrison Mission Manager
-## Version: v6
+## Version: v9
 ## Notes: Assists you with selecting best team for garrison missions
 ## Author: Oleg "Rowaa[SR13]" Volkov
 

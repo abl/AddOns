@@ -1,0 +1,15 @@
+﻿## Interface: 60000
+## Title: RSA [|c12FF75B3Reminders|r]
+## Notes: Buff Reminder module for RSA. If you want to be reminded of buffs, you need to enable this!
+## Author: Raeli
+## Dependencies: RSA
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: v3.001
+## X-Curse-Project-Name: RSA - Raeli's Spell Announcer
+## X-Curse-Project-ID: rsa
+## X-Curse-Repository-ID: wow/rsa/mainline
+
+## Title-zhTW: RSA [|c12FF75B3提示|r]
+## Notes-zhTW: RSA 增益狀態提示模組。假如你想要被提醒增益狀態，你必須啟用它！
+
+Reminders.lua

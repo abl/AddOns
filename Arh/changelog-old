@@ -1,0 +1,50 @@
+Version: 0.93
+added: keybinding for Survey and profession
+added: scaling for tooltips
+added: sounds for various actions
+
+Version: 0.92
+fixed: updated to wow 4.3
+fixed: can unbind keys now
+
+Version: 0.91
+fixed: Archaeology is not empty now
+fixed: /arh macro commands updated
+
+Version: 0.9
+added: cast Survey by LClick on spade button
+changed: toggle HUD is RClick now
+added: open Archaeology by MClick on spade button
+added: toggle color by RClick on color button
+added: undo button
+changed: buttons spacing increased
+
+Version: 0.83
+fixed: BattlefieldMinimap menu shows now
+
+Version: 0.82
+fixed: missed dependencies included
+
+Version: 0.81
+fixed: Digsites settings are correctly saved now
+
+Version: 0.8
+added: keybindings (see addon options or standard wow keybindings list)
+added: various options via wow user interface settings or /arhcfg command
+added: main window tooltips
+fixed: main window hiding while dragging
+fixed: minimap digsites moving unplugged from main window visibility
+
+Version: 0.7
+fixed: no digsites with rotating minimap and will hide with main window hide
+added: command line support, use /arh to see commands
+
+Version: 0.6
+fixed: error on HUD hiding without GatherMate2
+fixed: success circle size was too small, green region was too big
+changed: red line is meanless, almost removed
+changed: red cone is little wider now
+added: readme file
+
+Version: 0.5
+Initial public release

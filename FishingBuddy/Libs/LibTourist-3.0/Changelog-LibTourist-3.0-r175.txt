@@ -1,0 +1,97 @@
+------------------------------------------------------------------------
+r175 | Odica | 2014-11-27 18:56:53 +0000 (Thu, 27 Nov 2014) | 3 lines
+Changed paths:
+   M /trunk/LibTourist-3.0.lua
+
+- Updated Upper Blackrock Spire level to 100
+- Added fishing skill for Warspear and Stormshield
+- All fishing skills for Draenor zones are now set to 950, which is the skill required to catch nothing but Enormous Fish.
+------------------------------------------------------------------------
+r174 | Odica | 2014-11-26 14:57:24 +0000 (Wed, 26 Nov 2014) | 3 lines
+Changed paths:
+   M /trunk/LibTourist-3.0.lua
+
+- bugfix: GetYardDistance: it is now possible to calculate distances *within* a zone for which LibTourist is unable to retrieve zone offset data. This includes the garrison zones Frostwall and Lunarfall. Calculating distances from or to such a zone is still a problem (GetYardDistance returns nil if no offsets are available) but I'm working on that.
+- added fishing skill for Frostwall and Lunarfall. For now, the value is set to 750, as for the other Draenor zones.
+- expanded GetLevel() with brackets [90-94] and [95-99] for battlegrounds.
+------------------------------------------------------------------------
+r172 | Odica | 2014-11-16 13:38:28 +0000 (Sun, 16 Nov 2014) | 2 lines
+Changed paths:
+   M /trunk/LibTourist-3.0.lua
+
+- Added Warspear - Thunder Bluff protal
+- Added Siege of Orgrimmar instance
+------------------------------------------------------------------------
+r171 | Odica | 2014-11-04 22:51:02 +0000 (Tue, 04 Nov 2014) | 4 lines
+Changed paths:
+   M /trunk/LibTourist-3.0.lua
+
+- Added/updated instance portal coordinates for all eight Caverns of Time instances. Values are the coordinates on the Caverns of Time map (was Tanaris)
+- Added instance portal coordinates for Mogu'shan Vaults, Siege of Niuzao Temple, Mogu'shan Palace, Heart of Fear, Terrace of Endless Spring and Throne of Thunder.
+- Added battle pet levels for Darkmoon Island
+- Corrected faction for Frostwall (now Horde)
+------------------------------------------------------------------------
+r170 | Odica | 2014-11-03 17:52:09 +0000 (Mon, 03 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/LibTourist-3.0.lua
+
+Fixed Draenor misspelled as Dreanor...
+------------------------------------------------------------------------
+r169 | Odica | 2014-11-02 19:21:26 +0000 (Sun, 02 Nov 2014) | 16 lines
+Changed paths:
+   M /trunk/LibTourist-3.0.lua
+
+This version supports duplicate zone names. The duplicate zones introduced in 6.0.2 (Nagrand and Shadowmoon Valley) have had their localized continent name added to the zone name: "Nagrand (Draenor)" and "Shadowmoon Valley (Draenor)". In order to look up data for these two zones, those values have to be passed to the LibTourist API. The names "Nagrand" and "Shadowmoon Valley" will return data for the Outland versions of the zones.
+
+To facilitate this, two new API functions have been added:
+
+- Tourist:GetUniqueZoneNameForLookup(zoneName, continentID)
+This will return the new localized zone name for a duplicate zone, otherwise zoneName is returned unchanged.
+
+example:
+local fishing = Tourist:GetFishingLevel(Tourist:GetUniqueZoneNameForLookup(zoneName, continentID))
+
+- Tourist:GetMapNameByIDAlt(zoneAreaID)
+Alternative for GetMapNameByID, returns a unique localized zone name to be used to lookup data in LibTourist (uses GetUniqueZoneNameForLookup).
+
+Other changes:
+- Added Frostwall and Lunarfall (ticket 41)
+- Corrected battle pet level for Timeless Isle
+------------------------------------------------------------------------
+r168 | Odica | 2014-10-29 20:58:42 +0000 (Wed, 29 Oct 2014) | 6 lines
+Changed paths:
+   M /trunk/LibTourist-3.0.lua
+
+- added Draenor portal connections
+- placed all transports in a collection to reduce the number of local variables
+- fix: Tanaan Jungle and Ashran no longer return a list of instances with no items (return no list instead)
+- fix: added caching mechanism to GetMapZonesAlt to avoid the map going beserk when this function is called when the map is open (as it uses SetMapZoom)
+- API change: made GetMapZonesAlt(continentID) public. This function returns ALL zones in a continent (GetMapZones does not), but without the map IDs (like GetMapzones did before 6.0.2)
+- API change: made GetMapContinentsAlt() public. This function returns all continents, but without the map IDs (like GetMapContinents did before 6.0.2)
+------------------------------------------------------------------------
+r167 | Odica | 2014-10-23 19:20:10 +0000 (Thu, 23 Oct 2014) | 20 lines
+Changed paths:
+   M /trunk/LibTourist-3.0.lua
+   M /trunk/LibTourist-3.0.toc
+
+- Updated TOC to 60000
+- Made a method to cope with the changed output of GetMapContinents, replacing temporary code of r166
+- Implemented an alternative for GetMapZones because it no longer returns all zones on a continent, which makes the output unusable for SetMapZoom
+- Partial fix to be able to cope with duplicate zone names (Nagrand, Shadowmoon Valley)
+- Added Draenor continent, zones, cities and instances
+- Added Upper Blackrock Spire as separate lvl90 5-man instance
+- Removed 10-man instance from Blackrock Spire
+- Made some improvements to the mechanism that searches for zones on submaps (like Stranglethorn Vale)
+- The Maelstrom continent data is no longer overwritten by the data of the zone with the same name
+- Minor improvements and some code cleanup
+
+TODO's:
+- Change the way zone data is stored so it can handle duplicate zone names
+- Draenor portals
+- Figure out what to do with the Draenor fishing levels
+- Instance entrance coordinates
+- Localization (need some help here!)
+
+KNOWN ISSUE:
+- Currently, the data for the Outland zones Nagrand and Shadowmoon Valley is overwritten by the data for the Draenor zones with the same names
+------------------------------------------------------------------------

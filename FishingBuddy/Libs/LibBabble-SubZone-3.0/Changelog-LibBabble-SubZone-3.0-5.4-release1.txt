@@ -1,0 +1,27 @@
+------------------------------------------------------------------------
+r160 | arith | 2013-09-09 14:14:23 +0000 (Mon, 09 Sep 2013) | 1 line
+Changed paths:
+   A /tags/5.4-release1 (from /trunk:159)
+
+Tagging as 5.4-release1
+------------------------------------------------------------------------
+r159 | arith | 2013-09-09 14:08:04 +0000 (Mon, 09 Sep 2013) | 2 lines
+Changed paths:
+   M /trunk/LibBabble-SubZone-3.0.lua
+   M /trunk/LibBabble-SubZone-3.0.toc
+
+TOC update to support WoW 5.4.0;
+zhCN and zhTW translation update
+------------------------------------------------------------------------
+r157 | arith | 2013-08-21 13:36:49 +0000 (Wed, 21 Aug 2013) | 1 line
+Changed paths:
+   M /trunk/LibBabble-SubZone-3.0.lua
+
+added subzones and translation from WoW 5.4.0.17299; keep the TOC with the same to support WoW 5.3 for now
+------------------------------------------------------------------------
+r156 | arith | 2013-08-19 15:00:17 +0000 (Mon, 19 Aug 2013) | 1 line
+Changed paths:
+   M /trunk/LibBabble-SubZone-3.0.lua
+
+added new entries from 5.4.0.17299 AreaTable
+------------------------------------------------------------------------

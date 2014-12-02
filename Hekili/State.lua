@@ -60,7 +60,7 @@ state.stance = state.seal
 function H:SetCooldown( action, duration )
 
 	self.State.cooldown[ action ]			= self.State.cooldown[ action ] or {}
-	self.State.cooldown[ action ].start	= self.State.now + self.State.offset
+	-- self.State.cooldown[ action ].start	= self.State.now + self.State.offset
 	self.State.cooldown[ action ].duration	= duration
 	self.State.cooldown[ action ].expires	= self.State.now + self.State.offset + duration
 	
@@ -74,9 +74,12 @@ function H:Buff( aura, duration, stacks, value )
 		self.State.buff[ aura ].expires = 0
 		self.State.buff[ aura ].count   = 0
 		self.State.buff[ aura ].value   = 0
+		self.State.buff[ aura ].start   = 0
+		self.State.buff[ aura ].caster  = 'unknown'
 	else
 		self.State.buff[ aura ]         = self.State.buff[ aura ] or {}
 		self.State.buff[ aura ].expires = self.State.now + self.State.offset + ( duration or H.Auras[ aura ].duration )
+		self.State.buff[ aura ].start   = self.State.now + self.State.offset
 		self.State.buff[ aura ].count   = stacks or 1
 		self.State.buff[ aura ].value   = value or 0
 		self.State.buff[ aura ].caster  = 'player'
@@ -201,8 +204,8 @@ local mt_state	= {
 			
 		elseif k == 'time' then
 			-- Calculate time in combat.
-			if H.combat == 0 then return t.offset
-			else return t.now + ( t.offset or 0 ) - H.combat end
+			if H.combat == 0 and t.false_start == 0 then return 0
+			else return t.now + ( t.offset or 0 ) - ( H.combat > 0 and H.combat or t.false_start ) end
 
 		elseif k == 'time_to_die' then
 			-- Harvest TTD calculation from Hekili.
@@ -255,7 +258,8 @@ local mt_state	= {
 			return ( H.Auras[ t.this_action ].duration )
 		
 		elseif k == 'ticking' then
-			return ( t.dot[ t.this_action ].ticking )
+			if H.Auras[ t.this_action ] then return ( t.dot[ t.this_action ].ticking ) end
+			return false
 			
 		elseif k == 'ticks' then return 0
 		
@@ -839,11 +843,12 @@ local mt_default_aura = {
 			if not t.name then
 				t.count = 0
 				t.expires = 0
+				t.applied = 0
 				t.caster = 'unknown'
 				return t[k]
 			end
 			
-			local name, _, _, count, _, _, expires, caster = UnitBuff( 'player', t.name )
+			local name, _, _, count, _, duration, expires, caster = UnitBuff( 'player', t.name )
 
 			if name then
 				count = max(1, count)
@@ -852,6 +857,7 @@ local mt_default_aura = {
 			
 			t.count = count or 0
 			t.expires = expires or 0
+			t.applied = expires and ( expires - duration ) or 0
 			t.caster = caster or 'unknown'
 			
 			return t[k]
@@ -888,6 +894,7 @@ local mt_default_aura = {
 			
 		elseif k == 'stack_pct' then
 			if t.up then return ( 100 * t.count / t.max_stack ) else return 0 end
+		
 			
 		end
 		
@@ -915,12 +922,13 @@ local mt_buffs	= {
 			local found = false
 			
 			for i = 1, 40 do
-				local name, _, _, count, _, _, expires, caster, _, _, id = UnitBuff( 'player', i )
+				local name, _, _, count, _, duration, expires, caster, _, _, id = UnitBuff( 'player', i )
 				
 				if not name then break end
 				
 				count = max(1, count)
 				if expires == 0 then expires = state.now + 3600 end
+				if duration == 0 then duration = H.Auras[ name ].duration end
 				
 				local key = H.Auras[ id ].key
 				
@@ -929,7 +937,9 @@ local mt_buffs	= {
 						key		= key,
 						name	= name,
 						count	= count or 0,
-						expires	= expires or 0
+						expires	= expires or 0,
+						caster	= caster or 'unknown',
+						applied = expires - duration
 					}
 				end
 				
@@ -941,7 +951,9 @@ local mt_buffs	= {
 					key		= k,
 					name	= name,
 					count	= 0,
-					expires	= 0
+					expires	= 0,
+					applied = 0,
+					caster	= 'unknown'
 				}
 			end
 			

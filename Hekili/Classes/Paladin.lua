@@ -125,6 +125,7 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 	AddAura( 'seal_of_command', 105361 )
 	AddAura( 'seal_of_insight', 20165 )
 	AddAura( 'selfless_healer', 114250 )
+	AddAura( 'seraphim', 152262 )
 	AddAura( 'turalyons_justice', 156987, 'duration', 20 )
 	AddAura( 'uthers_insight', 156988, 'duration', 20 )
 
@@ -213,17 +214,19 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 	
 	AddAbility( 'divine_storm', 53385,
 		{
-			spend = 3,
-			spend_type = SPELL_POWER_HOLY_POWER,
+			spend = function( s )
+				if s.buff.divine_purpose.up then return 0, SPELL_POWER_HOLY_POWER end
+				return 3, SPELL_POWER_HOLY_POWER
+			end,
 			cast = 0,
 			gcdType = 'melee',
-			cooldown = 0
+			cooldown = 0,
+			hostile = true
 		} )
 
 	AddHandler( 'divine_storm', function ()
-		if buff.divine_crusader.up then
-			H:RemoveBuff( 'divine_crusader' )
-		end
+		H:RemoveBuff( 'divine_crusader' )
+		H:RemoveBuff( 'divine_purpose' )
 		H:Spend( 3, 'holy_power' )
 	end )
 
@@ -233,27 +236,33 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 			cast = 0,
 			gcdType = 'spell', 
 			cooldown = 60,
-			known = function( s ) return s.talent.execution_sentence.enabled end
+			known = function( s ) return s.talent.execution_sentence.enabled end,
+			hostile = true
 		} )
 	
 	AddHandler( 'execution_sentence', function ()
 		H:Debuff( 'target', 'execution_sentence', 10 )
 	end )
 
-	
-	AddAbility( 'exorcism', 122032,
+	AddAbility( 'exorcism', 879, 122032,
 		{
 			known = 879,
 			spend = 0.04,
 			cast = 0,
 			gcdType = 'spell',
-			cooldown = 15
+			cooldown = 15,
+			hostile = true
 		} )
 
 	ModifyAbility( 'exorcism', 'cooldown', function( x )
 		return x * haste
 	end )
 	
+	ModifyAbility( 'exorcism', 'id', function ( x )
+		if glyph.mass_exorcism.enabled then return 122032 end
+		return x
+	end )
+
 	AddHandler( 'exorcism', function ()
 		if buff.blazing_contempt.up then
 			H:Gain( 3, 'holy_power' )
@@ -261,21 +270,25 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 		else
 			H:Gain( buff.holy_avenger.up and 3 or 1, 'holy_power' )
 		end
-	end )
+	end )	
 	
 
 	AddAbility( 'final_verdict', 157048,
 		{
-			spend = 3,
-			spend_type = SPELL_POWER_HOLY_POWER,
+			spend = function( s )
+				if s.buff.divine_purpose.up then return 0, SPELL_POWER_HOLY_POWER end
+				return 3, SPELL_POWER_HOLY_POWER
+			end,
 			cast = 0,
 			gcdType = 'spell',
 			cooldown = 0,
-			known = function( s ) return s.talent.final_verdict.enabled end
+			known = function( s ) return s.talent.final_verdict.enabled end,
+			hostile = true
 		} )
 
 	AddHandler( 'final_verdict', function()
 		H:Buff( 'final_verdict', 30 )
+		H:RemoveBuff( 'divine_purpose' )
 	end )	
 
 	
@@ -284,7 +297,8 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 			spend = 0.03,
 			cast = 0,
 			gcdType = 'melee',
-			cooldown = 4.5
+			cooldown = 4.5,
+			hostile = true
 		} )	
 	
 	ModifyAbility( 'hammer_of_the_righteous', 'cooldown', function( x )
@@ -302,7 +316,8 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 			cast = 0,
 			gcdType = 'melee',
 			cooldown = 6,
-			usable = function( s ) return ( s.target.health_pct <= ( s.perk.empowered_hammer_of_wrath.enabled and 35 or 20 ) ) or s.buff.avenging_wrath.up end
+			usable = function( s ) return ( s.target.health_pct <= ( s.perk.empowered_hammer_of_wrath.enabled and 35 or 20 ) ) or s.buff.avenging_wrath.up end,
+			hostile = true
 		} )
 
 	ModifyAbility( 'hammer_of_wrath', 'cooldown', function( x )
@@ -333,10 +348,12 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 	
 	AddAbility( 'holy_prism', 114165,
 		{
+      known = function( s ) return s.talent.holy_prism.enabled end,
 			spend = 0.17,
 			cast = 0,
 			gcdType = 'spell',
-			cooldown = 20
+			cooldown = 20,
+			hostile = true
 		} )	
 	
 
@@ -345,7 +362,8 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 			spend = 0.12,
 			cast = 0,
 			gcdType = 'spell',
-			cooldown = 6
+			cooldown = 6,
+			hostile = true
 		} )
 	
 	ModifyAbility( 'judgment', 'cooldown', function( x )
@@ -366,10 +384,12 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 	
 	AddAbility( 'lights_hammer', 114158,
 		{
+      known = function( s ) return s.talent.lights_hammer.enabled end,
 			spend = 0.519,
 			cast = 0,
 			gcdType = 'spell',
-			cooldown = 60
+			cooldown = 60,
+			hostile = true
 		} )
 
 	
@@ -378,7 +398,8 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 			spend =  0.117,
 			cast = 0,
 			gcdType = 'off',
-			cooldown = 15
+			cooldown = 15,
+			hostile = true
 		} )
 	
 	AddHandler( 'rebuke', function ()
@@ -431,14 +452,20 @@ if (select(2, UnitClass('player')) == 'PALADIN') then
 	
 	AddAbility( 'templars_verdict', 85256,
 		{
-			spend = 3,
-			spend_type = SPELL_POWER_HOLY_POWER,
+			spend = function( s )
+				if s.buff.divine_purpose.up then return 0, SPELL_POWER_HOLY_POWER end
+				return 3, SPELL_POWER_HOLY_POWER
+			end,
 			cast = 0,
 			gcdType = 'spell',
 			cooldown = 0,
-			known = function( s ) return not s.talent.final_verdict.enabled end
+			known = function( s ) return not s.talent.final_verdict.enabled end,
+			hostile = true
 		} )
 	
+	AddHandler( 'templars_verdict', function ()
+		H:RemoveBuff( 'divine_purpose' )
+	end )
 	
 	
 	Hekili.Default( '@Retribution, Single Target', 'actionLists', 2.07, "^1^T^SEnabled^B^SName^SRetribution,~`Single~`Target^SRelease^N2.06^SSpecialization^N70^SActions^T^N1^T^SEnabled^B^SName^SDivine~`Storm^SRelease^N2.06^SAbility^Sdivine_storm^SScript^Sbuff.divine_crusader.up&holy_power.current=5&buff.final_verdict.up^t^N2^T^SEnabled^B^SName^SDivine~`Storm~`(1)^SRelease^N2.06^SAbility^Sdivine_storm^SScript^Sbuff.divine_crusader.up&holy_power.current=5&active_enemies=2&!talent.final_verdict.enabled^t^N3^T^SEnabled^B^SName^SDivine~`Storm~`(2)^SRelease^N2.06^SAbility^Sdivine_storm^SScript^Sholy_power.current=5&active_enemies=2&buff.final_verdict.up^t^N4^T^SEnabled^B^SName^SDivine~`Storm~`(3)^SRelease^N2.06^SAbility^Sdivine_storm^SScript^Sbuff.divine_crusader.up&holy_power.current=5&(talent.seraphim.enabled&cooldown.seraphim.remains<=4)^t^N5^T^SEnabled^B^SName^STemplar's~`Verdict^SRelease^N2.06^SAbility^Stemplars_verdict^SScript^Sholy_power.current=5|buff.holy_avenger.up&holy_power.current>=3&(!talent.seraphim.enabled|cooldown.seraphim.remains>4)^t^N6^T^SEnabled^B^SName^STemplar's~`Verdict~`(1)^SRelease^N2.06^SAbility^Stemplars_verdict^SScript^Sbuff.divine_purpose.up&buff.divine_purpose.remains<4^t^N7^T^SEnabled^B^SName^SDivine~`Storm~`(4)^SRelease^N2.06^SAbility^Sdivine_storm^SScript^Sbuff.divine_crusader.up&buff.divine_crusader.remains<4&!talent.final_verdict.enabled^t^N8^T^SEnabled^B^SName^SFinal~`Verdict^SRelease^N2.06^SAbility^Sfinal_verdict^SScript^Sholy_power.current=5|buff.holy_avenger.up&holy_power.current>=3^t^N9^T^SEnabled^B^SName^SFinal~`Verdict~`(1)^SRelease^N2.06^SAbility^Sfinal_verdict^SScript^Sbuff.divine_purpose.up&buff.divine_purpose.remains<4^t^N10^T^SRelease^N2.06^SAbility^Shammer_of_wrath^SName^SHammer~`of~`Wrath^SEnabled^B^t^N11^T^SEnabled^B^SName^SJudgment^SRelease^N2.06^SAbility^Sjudgment^SScript^Stalent.empowered_seals.enabled&((seal.truth&buff.maraads_truth.remains<cooldown.judgment.duration*2)|(seal.righteousness&buff.liadrins_righteousness.remains<cooldown.judgment.duration*2))^t^N12^T^SEnabled^B^SName^SExorcism^SRelease^N2.06^SAbility^Sexorcism^SScript^Sbuff.blazing_contempt.up&holy_power.current<=2&buff.holy_avenger.down^t^N13^T^SEnabled^B^SName^SSeal~`of~`Truth^SRelease^N2.06^SAbility^Sseal_of_truth^SScript^Stalent.empowered_seals.enabled&buff.maraads_truth.remains<(cooldown.judgment.duration)&buff.maraads_truth.remains<=3^t^N14^T^SEnabled^B^SName^SDivine~`Storm~`(5)^SRelease^N2.06^SAbility^Sdivine_storm^SScript^Sbuff.divine_crusader.up&buff.final_verdict.up&(buff.avenging_wrath.up|target.health.pct<35)^t^N15^T^SEnabled^B^SName^SFinal~`Verdict~`(2)^SRelease^N2.06^SAbility^Sfinal_verdict^SScript^Sbuff.divine_purpose.up|target.health.pct<35^t^N16^T^SEnabled^B^SName^STemplar's~`Verdict~`(2)^SRelease^N2.06^SAbility^Stemplars_verdict^SScript^Sbuff.avenging_wrath.up|target.health.pct<35&(!talent.seraphim.enabled|cooldown.seraphim.remains>4)^t^N17^T^SRelease^N2.06^SAbility^Scrusader_strike^SName^SCrusader~`Strike^SEnabled^B^t^N18^T^SEnabled^B^SName^SDivine~`Storm~`(6)^SRelease^N2.06^SAbility^Sdivine_storm^SScript^Sbuff.divine_crusader.up&(buff.avenging_wrath.up|target.health.pct<35)&!talent.final_verdict.enabled^t^N19^T^SEnabled^B^SName^SDivine~`Storm~`(7)^SRelease^N2.06^SAbility^Sdivine_storm^SScript^Sbuff.divine_crusader.up&buff.final_verdict.up^t^N20^T^SRelease^N2.06^SAbility^Sfinal_verdict^SName^SFinal~`Verdict~`(3)^SEnabled^B^t^N21^T^SEnabled^B^SName^SSeal~`of~`Righteousness^SRelease^N2.06^SAbility^Sseal_of_righteousness^SScript^Stalent.empowered_seals.enabled&buff.liadrins_righteousness.remains<(cooldown.judgment.duration)&buff.liadrins_righteousness.remains<=3^t^N22^T^SRelease^N2.06^SAbility^Sjudgment^SName^SJudgment~`(1)^SEnabled^B^t^N23^T^SEnabled^B^SName^STemplar's~`Verdict~`(3)^SRelease^N2.06^SAbility^Stemplars_verdict^SScript^Sbuff.divine_purpose.up^t^N24^T^SEnabled^B^SName^SDivine~`Storm~`(8)^SRelease^N2.06^SAbility^Sdivine_storm^SScript^Sbuff.divine_crusader.up&!talent.final_verdict.enabled^t^N25^T^SEnabled^B^SName^STemplar's~`Verdict~`(4)^SRelease^N2.06^SAbility^Stemplars_verdict^SScript^Sholy_power.current>=4&(!talent.seraphim.enabled|cooldown.seraphim.remains>4)^t^N26^T^SRelease^N2.06^SAbility^Sexorcism^SName^SExorcism~`(1)^SEnabled^B^t^N27^T^SEnabled^B^SName^STemplar's~`Verdict~`(5)^SRelease^N2.06^SAbility^Stemplars_verdict^SScript^Sholy_power.current>=3&(!talent.seraphim.enabled|cooldown.seraphim.remains>4)^t^N28^T^SRelease^N2.06^SAbility^Sholy_prism^SName^SHoly~`Prism^SEnabled^B^t^t^SScript^S^t^^" )

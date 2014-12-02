@@ -1,0 +1,13 @@
+<Bindings>
+	<Binding name="CLICK Arh_MainFrame_ButtonDig:LeftButton" header="ARH"> </Binding>
+	<Binding name="ARH_TOGGLEMAIN"> Arh:ToggleMainFrame() </Binding>
+	<Binding name="ARH_TOGGLEHUD"> Arh:ToggleHUD() </Binding>
+	<Binding name="ARH_SHOWARCHAEOLOGYFRAME"> Arh:ToggleArch() </Binding>
+	<Binding name="ARH_ADDRED"> Arh_MainFrame_ButtonRed_OnLClick() </Binding>
+	<Binding name="ARH_ADDYELLOW"> Arh_MainFrame_ButtonYellow_OnLClick() </Binding>
+	<Binding name="ARH_ADDGREEN"> Arh_MainFrame_ButtonGreen_OnLClick() </Binding>
+	<Binding name="ARH_TOGGLERED"> Arh_MainFrame_ButtonRed_OnRClick() </Binding>
+	<Binding name="ARH_TOGGLEYELLOW"> Arh_MainFrame_ButtonYellow_OnRClick() </Binding>
+	<Binding name="ARH_TOGGLEGREEN"> Arh_MainFrame_ButtonGreen_OnRClick() </Binding>
+	<Binding name="ARH_BACK"> Arh_MainFrame_ButtonBack_OnLClick() </Binding>
+</Bindings>

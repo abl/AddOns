@@ -1,0 +1,16 @@
+﻿## Interface: 60000
+## Title: RSA [|cff0055FFShaman|r]
+## Notes: RSA Shaman Module. This is needed to announce Shaman Spells.
+## Author: Raeli, Xadurk, Jenneth
+## Dependencies: RSA
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: v3.001
+## X-Curse-Project-Name: RSA - Raeli's Spell Announcer
+## X-Curse-Project-ID: rsa
+## X-Curse-Repository-ID: wow/rsa/mainline
+
+## Title-zhTW: RSA [|cff0055FF薩滿|r]
+## Notes-zhTW: RSA 薩滿模組。通報薩滿的技能。
+
+
+Shaman.lua

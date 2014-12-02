@@ -1,0 +1,17 @@
+﻿## Interface: 60000
+## Title: RSA [|c51FF7D0ADruid|r]
+## Notes: RSA Druid Module. This is needed to announce Druid Spells.
+## Author: Raeli, Xadurk, Jenneth
+## Dependencies: RSA
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: v3.001
+## X-Curse-Project-Name: RSA - Raeli's Spell Announcer
+## X-Curse-Project-ID: rsa
+## X-Curse-Repository-ID: wow/rsa/mainline
+
+
+## Title-zhTW: RSA [|c51FF7D0A德魯伊|r]
+## Notes-zhTW: RSA 德魯伊模組。通報德魯伊的技能。
+
+
+Druid.lua

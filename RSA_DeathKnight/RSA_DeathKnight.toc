@@ -1,0 +1,16 @@
+﻿## Interface: 60000
+## Title: RSA [|c50C41F3BDeath Knight|r]
+## Notes: RSA Death Knight Module. This is needed to announce Death Knight Spells.
+## Author: Raeli, Xadurk, Jenneth
+## Dependencies: RSA
+## LoadOnDemand: 1
+## X-Curse-Packaged-Version: v3.001
+## X-Curse-Project-Name: RSA - Raeli's Spell Announcer
+## X-Curse-Project-ID: rsa
+## X-Curse-Repository-ID: wow/rsa/mainline
+
+## Title-zhTW: RSA [|c50C41F3B死亡騎士|r]
+## Notes-zhTW: RSA 死亡騎士模組。通報死亡騎士的技能。
+
+
+DeathKnight.lua
