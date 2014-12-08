@@ -1,0 +1,67 @@
+------------------------------------------------------------------------
+r397 | kagaro | 2014-12-07 07:01:24 +0000 (Sun, 07 Dec 2014) | 1 line
+Changed paths:
+   A /tags/v24.3 (from /trunk:396)
+
+GatherMate2_Data: Data update
+------------------------------------------------------------------------
+r395 | kagaro | 2014-12-06 15:46:26 +0000 (Sat, 06 Dec 2014) | 1 line
+Changed paths:
+   M /trunk/HerbalismData.lua
+   M /trunk/MiningData.lua
+   M /trunk/TreasureData.lua
+
+GatherMate2_Data: Data update
+------------------------------------------------------------------------
+r393 | kagaro | 2014-12-05 18:17:29 +0000 (Fri, 05 Dec 2014) | 1 line
+Changed paths:
+   M /trunk/HerbalismData.lua
+   M /trunk/MiningData.lua
+   M /trunk/TreasureData.lua
+
+GatherMate2_Data: Data update
+------------------------------------------------------------------------
+r392 | kagaro | 2014-12-05 18:08:58 +0000 (Fri, 05 Dec 2014) | 1 line
+Changed paths:
+   M /trunk/GatherMateData.lua
+
+Added wod import filter
+------------------------------------------------------------------------
+r390 | kagaro | 2014-12-05 14:10:03 +0000 (Fri, 05 Dec 2014) | 1 line
+Changed paths:
+   M /trunk/HerbalismData.lua
+   M /trunk/MiningData.lua
+   M /trunk/TreasureData.lua
+
+GatherMate2_Data: Data update
+------------------------------------------------------------------------
+r388 | kagaro | 2014-11-30 07:05:18 +0000 (Sun, 30 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/HerbalismData.lua
+   M /trunk/MiningData.lua
+   M /trunk/TreasureData.lua
+
+GatherMate2_Data: Data update
+------------------------------------------------------------------------
+r387 | nevcairiel | 2014-11-24 15:16:47 +0000 (Mon, 24 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/GatherMate2_Data.toc
+
+Put @project-version@ into the TOC
+------------------------------------------------------------------------
+r385 | kagaro | 2014-11-23 07:04:55 +0000 (Sun, 23 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/HerbalismData.lua
+   M /trunk/MiningData.lua
+   M /trunk/TreasureData.lua
+
+GatherMate2_Data: Data update
+------------------------------------------------------------------------
+r383 | kagaro | 2014-11-16 07:04:23 +0000 (Sun, 16 Nov 2014) | 1 line
+Changed paths:
+   M /trunk/HerbalismData.lua
+   M /trunk/MiningData.lua
+   M /trunk/TreasureData.lua
+
+GatherMate2_Data: Data update
+------------------------------------------------------------------------

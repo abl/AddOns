@@ -197,6 +197,7 @@ L["Tracking Circle Color"] = "Couleur du cercle de suivi"
 L["Tracking Distance"] = "Distance de suivi"
 L["Treasure"] = "Trésors"
 L["Treasure filter"] = "Filtre des trésors"
+-- L["Warlords of Draenor"] = "Warlords of Draenor"
 L["World Map Icons"] = "Icônes de la carte du monde" -- Needs review
 L["World Map Icon Scale"] = "Échelle des icônes de la carte du monde" -- Needs review
 L["Wrath of the Lich King"] = "Wrath of the Lich King"

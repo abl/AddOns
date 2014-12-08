@@ -197,6 +197,7 @@ L["Show World Map Icons"] = "Mostra le icone sulla World Map" -- Needs review
 -- L["Tracking Distance"] = "Tracking Distance"
 -- L["Treasure"] = "Treasure"
 -- L["Treasure filter"] = "Treasure filter"
+-- L["Warlords of Draenor"] = "Warlords of Draenor"
 -- L["World Map Icons"] = "World Map Icons"
 -- L["World Map Icon Scale"] = "World Map Icon Scale"
 -- L["Wrath of the Lich King"] = "Wrath of the Lich King"

@@ -710,7 +710,7 @@ function Atr_InitDETable()
 	DEtableInsert (t, {450,450,		20,  1, ETHEREAL_SHARD,			80, 1, SMALL_ETHEREAL})
 	DEtableInsert (t, {451,476,		100, 1, ETHEREAL_SHARD})
 
-	DEtableInsert (t, {477,800,		100, 1, LUMINOUS_SHARD})
+	DEtableInsert (t, {477,800,		90, 9, DRAENIC_DUST,		10, 1, LUMINOUS_SHARD})
 
    
  
@@ -744,7 +744,7 @@ function Atr_InitDETable()
 	DEtableInsert (t, {450,450,		20,  1, ETHEREAL_SHARD,			80, 1, SMALL_ETHEREAL})
 	DEtableInsert (t, {451,476,		100, 1, ETHEREAL_SHARD})
   
-	DEtableInsert (t, {477,800,		100, 1, LUMINOUS_SHARD})
+	DEtableInsert (t, {477,800,		90, 9, DRAENIC_DUST,		10, 1, LUMINOUS_SHARD})
 
 	-- EPIC ITEMS
 	

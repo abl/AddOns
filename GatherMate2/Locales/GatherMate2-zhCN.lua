@@ -198,6 +198,7 @@ L["Tracking Circle Color"] = "追踪环颜色"
 L["Tracking Distance"] = "追踪距离"
 L["Treasure"] = "财宝"
 L["Treasure filter"] = "财宝过滤"
+-- L["Warlords of Draenor"] = "Warlords of Draenor"
 L["World Map Icons"] = "世界地图图标" -- Needs review
 L["World Map Icon Scale"] = "世界地图图标缩放" -- Needs review
 L["Wrath of the Lich King"] = "巫妖王之怒"

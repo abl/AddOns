@@ -8,11 +8,11 @@
 ## Author: kagaro, Xinhuan
 ## X-Category: Map
 ## X-Email: sal.scotto@gmail.com
-## Version: v23.9
+## Version: v24.3
 ## LoadOnDemand: 1
 ## X-Generated-Version: $Revision: 387 $
 ## Dependencies: GatherMate2
-## X-Curse-Packaged-Version: v23.9
+## X-Curse-Packaged-Version: v24.3
 ## X-Curse-Project-Name: GatherMate2_Data
 ## X-Curse-Project-ID: gathermate2_data
 ## X-Curse-Repository-ID: wow/gathermate2_data/mainline

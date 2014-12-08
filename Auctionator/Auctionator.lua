@@ -528,13 +528,13 @@ local function Atr_SlashCmdFunction(msg)
 	elseif (cmd == "locale") then
 		Atr_PickLocalizationTable (param1u);
 
-	elseif (cmd == "dcp") then
+	elseif (cmd == "fsc") then
 		
 		if (param1) then
-			AUCTIONATOR_DC_PAUSE = tonumber(param1);
+			AUCTIONATOR_DC_CHUNK = tonumber(param1);
 		end
-		
-		zc.msg_anm ("dcp set to: ", AUCTIONATOR_DC_PAUSE);
+			
+		zc.msg_anm ("full scan chunk size set to: ", AUCTIONATOR_DC_CHUNK);
 
 	elseif (cmd == "generr") then
 		
@@ -1915,11 +1915,12 @@ function Atr_OnAuctionUpdate (...)
 	aoa_count = aoa_count + 1
 
 	if (gAtr_FullScanState == ATR_FS_STARTED) then
-		gAtr_FullScanState = ATR_FS_ANALYZING		-- handle in idle loop to slow down
+		Atr_FullScanBeginAnalyzePhase()		-- handle in idle loop to slow down
 		return
 	end
 
 	if (gAtr_FullScanState == ATR_FS_SLOW_QUERY_SENT) then
+		Atr_FullScanBeginAnalyzePhase()	
 		Atr_FullScanAnalyze()						-- handle here since it's just one page
 		return
 	end
@@ -2746,13 +2747,24 @@ function Atr_OnUpdate(self, elapsed)
 		Atr_GetNextDustIntoCache();
 	end
 	
+	-- special idle routine for full scan analyze phase gets called more often
+	
+--	if (Atr_FullScanFrameIdle == nil) then
+--		Atr_Error_Display ("Looks like you installed Auctionator\n without quitting out of WoW.\n\nPlease quit and restart\nWoW to complete the install.")
+--	else
+		local handled = Atr_FullScanFrameIdle()
+		if (handled) then
+			return
+		end
+--	end
+
 	-- the core Idle routine
 
 	if (zc.periodic (self, "idle_lastUpdate", 0.2, elapsed)) then
 		Atr_Idle (self, elapsed);
 	end
 
-
+	
 end
 
 
@@ -2766,14 +2778,6 @@ function Atr_Idle(self, elapsed)
 		Atr_ShowRecTooltip();
 	end
 
-	if (Atr_FullScanFrameIdle == nil) then
-		Atr_Error_Display ("Looks like you installed Auctionator\n without quitting out of WoW.\n\nPlease quit and restart\nWoW to complete the install.")
-	else
-		local handled = Atr_FullScanFrameIdle()
-		if (handled) then
-			return
-		end
-	end
 	
 	if (verCheckMsgState == 0) then
 		verCheckMsgState = time();

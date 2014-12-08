@@ -7,7 +7,7 @@ if select(2,UnitClass("player")) ~= "SHAMAN" then return end
 
 local L = LibStub("AceLocale-3.0"):GetLocale("TotemTimers", true)
 
-local TimerCount = {[AIR_TOTEM_SLOT] = 6, [FIRE_TOTEM_SLOT] = 2, [EARTH_TOTEM_SLOT] = 6, [WATER_TOTEM_SLOT] = 4}
+local TimerCount = {[AIR_TOTEM_SLOT] = 7, [FIRE_TOTEM_SLOT] = 2, [EARTH_TOTEM_SLOT] = 6, [WATER_TOTEM_SLOT] = 4}
 
 local RaidMembers = {}
 
@@ -142,6 +142,7 @@ local Cooldowns = {
     },
     [WATER_TOTEM_SLOT] = {
         [2] = SpellIDs.HealingStream,
+		[3] = SpellIDs.Cloudburst,
         [4] = SpellIDs.HealingTide,
     },
     [FIRE_TOTEM_SLOT] = {
@@ -153,6 +154,7 @@ local Cooldowns = {
         [4] = SpellIDs.WindWalk,
 		[5] = SpellIDs.StormLash,
 		[6] = SpellIDs.Capacitor,
+		[7] = SpellIDs.StormElemental,
     },
 }
 

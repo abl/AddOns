@@ -680,9 +680,9 @@ function TotemTimers.MaelstromEvent(self, event, unit)
             self:Show()
         end
         self:SetAlpha(1)
-	elseif event == "PET_BATTLE_OPENING_START" or event == "UNIT_ENTERED_VEHICLE" then 
+	elseif event == "PET_BATTLE_OPENING_START" or (event == "UNIT_ENTERED_VEHICLE" and not InCombatLockdown()) then 
 		self:Hide()
-	elseif event == "PET_BATTLE_CLOSE" or event == "UNIT_EXITED_VEHICLE" then
+	elseif event == "PET_BATTLE_CLOSE" or (event == "UNIT_EXITED_VEHICLE" and not InCombatLockdown()) then
 		if not TotemTimers.ActiveProfile.HideEnhanceCDsOOC then
 			self:Show()
 		end

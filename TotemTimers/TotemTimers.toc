@@ -1,12 +1,12 @@
 ## Interface: 60000
 ## Title: TotemTimers
 ## Author:  Xianghar
-## Version: 11.1.6
+## Version: 11.1.8
 ## SavedVariables: TotemTimers_GlobalSettings, TotemTimers_Profiles
 ## OptionalDeps: cyCircled, Masque, !ClassColors, rActionButtonStyler
 ## LoadManagers: AddonLoader
 ## X-LoadOn-Class: Shaman
-## X-Curse-Packaged-Version: 11.1.6
+## X-Curse-Packaged-Version: 11.1.8
 ## X-Curse-Project-Name: TotemTimers
 ## X-Curse-Project-ID: totemtimers
 ## X-Curse-Repository-ID: wow/totemtimers/mainline

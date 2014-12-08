@@ -1,0 +1,27 @@
+## Interface: 60000
+## Title: Paste
+## Description: Enables multi-line/unlimited-length pasting of text or commands into WoW
+## Notes: Enables multi-line/unlimited-length pasting of text or commands into WoW
+## Author: oscarucb
+## Credits: 
+## Version: 1.4.1
+## X-Build: 34
+## X-ReleaseDate: 2014-10-11T17:37:12Z
+## X-Revision: $Revision: 34 $
+## SavedVariables: PasteDB 
+## SavedVariablesPerCharacter: 
+## X-Embeds: Ace3, LibDataBroker-1.1, LibDBIcon-1.0, LibStrataFix
+## OptionalDeps: Ace3, LibDataBroker-1.1, LibDBIcon-1.0
+## LoadManagers: AddonLoader
+## X-LoadOn-Always: delayed
+## X-LoadOn-Slash: /paste
+## X-Curse-Packaged-Version: 1.4.1
+## X-Curse-Project-Name: Paste
+## X-Curse-Project-ID: paste
+## X-Curse-Repository-ID: wow/paste/mainline
+
+embeds.xml
+
+locale.lua
+
+core.lua

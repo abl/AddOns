@@ -38,8 +38,8 @@ local gDoSlowScan = false;
 
 local gScanDetails = {}
 
-local lowprices = {};
-local qualities = {};
+local gLowPrices = {};
+local gQualities = {};
 
 local badItemCount = 0
 
@@ -138,7 +138,10 @@ function Atr_FullScanFrameIdle()
 	if (gAtr_FullScanState == ATR_FS_STARTED)		then	statusText = "Waiting for auction data"		end
 	if (gAtr_FullScanState == ATR_FS_UPDATING_DB)	then	statusText = "Updating database"			end
 	if (gAtr_FullScanState == ATR_FS_CLEANING_UP)	then	statusText = "Scan complete"				end
-	if (gAtr_FullScanState == ATR_FS_ANALYZING) 	then	statusText = "Analyzing data"				end
+	if (gAtr_FullScanState == ATR_FS_ANALYZING ) 	then	statusText = "Analyzing data ["..gFullScanPosition.." out of "..gGetAllTotalAuctions.."]";				end
+
+
+
 
 
 	if (gAtr_FullScanState == ATR_FS_CLEANING_UP) then
@@ -162,33 +165,49 @@ end
 
 -----------------------------------------
 
-function Atr_FullScanAnalyze()
+function Atr_FullScanBeginAnalyzePhase()
 
 	gAtr_FullScanState = ATR_FS_ANALYZING;
 
 	local numBatchAuctions, totalAuctions, returnedTotalAuction = Atr_GetNumAuctionItems("list");
 
+	gGetAllTotalAuctions	= returnedTotalAuction
+	gGetAllNumBatchAuctions	= numBatchAuctions
+
 	if (totalAuctions ~= returnedTotalAuction) then
-		gGetAllTotalAuctions	= returnedTotalAuction
-		gGetAllNumBatchAuctions	= numBatchAuctions
 		gGetAllSuccess			= false
 	end
 
-	local x;
-	
-	if (gFullScanPosition == nil) then
-	
-		gFullScanPosition = 1
-		lowprices = {}
-		qualities = {}
+	gFullScanPosition = 1
+	gLowPrices = {}
+	gQualities = {}
 
-		zz ("FULL SCAN:"..numBatchAuctions.." out of  "..totalAuctions)
-		zz ("AUCTIONATOR_DC_PAUSE: ", AUCTIONATOR_DC_PAUSE)
-		zz ("gFullScanPosition:", gFullScanPosition)
+	if (AUCTIONATOR_DC_CHUNK == nil) then
+		AUCTIONATOR_DC_CHUNK = 100
 	end
 
+	if (not gDoSlowScan) then
+		zz ("FULL SCAN:"..numBatchAuctions.." out of  "..totalAuctions)
+		zz ("AUCTIONATOR_DC_CHUNK: ", AUCTIONATOR_DC_CHUNK)
+	end
+	
+end
+
+-----------------------------------------
+
+function Atr_FullScanAnalyze()
+
+	if (gFullScanPosition == nil) then
+		zc.msg_anm ("|cffff3333Warning:|r Atr_FullScanAnalyze: gFullScanPosition is nil!");
+	end
+
+	local firstScanPosition = gFullScanPosition;
+	local numBatchAuctions  = gGetAllNumBatchAuctions;
+	
 	if (gDoSlowScan) then
-		gFullScanPosition = 1
+		local numBatchAuctions, totalAuctions = Atr_GetNumAuctionItems("list");
+
+		firstScanPosition = 1
 		gSlowScanTotalPages = math.floor (totalAuctions / 50) + 1
 		
 		--zz ("gSlowScanPage:", gSlowScanPage+1, " of ", gSlowScanTotalPages)
@@ -205,32 +224,14 @@ function Atr_FullScanAnalyze()
 
 	if (numBatchAuctions > 0) then
 
-		for x = gFullScanPosition, numBatchAuctions do
+		local x;
+
+		for x = firstScanPosition, numBatchAuctions do
 
 			name, texture, count, quality, canUse, level, huh, minBid,
 					minIncrement, buyoutPrice, bidAmount, highBidder, bidderFullName, owner, ownerFullName, saleStatus   = GetAuctionItemInfo("list", x);
 
 			gNumScanned = gNumScanned + 1
-			
-			-- waste some time so that it's less likely we cause disconnects
-			
-			if (not gDoSlowScan) then
-				if (AUCTIONATOR_DC_PAUSE == nil) then
-					AUCTIONATOR_DC_PAUSE = 200;
-				end
-				
-				if (AUCTIONATOR_DC_PAUSE and AUCTIONATOR_DC_PAUSE > 0) then
-					for k = 1, AUCTIONATOR_DC_PAUSE do
-						k = math.acos (math.cos (47));
-					end
-				end
-			end
-			
-			-----------------------
-			
---			if (itemLink == nil) then
---				gFSNumNullItemLinks = gFSNumNullItemLinks + 1;
---			end
 			
 			if (name == nil) then
 				gFSNumNullItemNames = gFSNumNullItemNames + 1;
@@ -245,23 +246,23 @@ function Atr_FullScanAnalyze()
 				dataIsGood = false
 				zz ("bad item scanned.  name: ", name, " count: ", count, "badItemCount: ", badItemCount);
 			else
-				qualities[name] = quality;
+				gQualities[name] = quality;
 				
 				if (buyoutPrice ~= nil) then
 				
 					local itemPrice = math.floor (buyoutPrice / count);
 				
 					if (itemPrice > 0) then
-						if (not lowprices[name]) then
-							lowprices[name] = BIGNUM;
+						if (not gLowPrices[name]) then
+							gLowPrices[name] = BIGNUM;
 						end
 						
-						lowprices[name] = math.min (lowprices[name], itemPrice);
+						gLowPrices[name] = math.min (gLowPrices[name], itemPrice);
 					end
 				end
 			end
 			
-			if (x % 1000 == 0 and x < numBatchAuctions) then			-- analyze fast scan data in chunks so as not to cause client to timeout?
+			if (not gDoSlowScan and x % AUCTIONATOR_DC_CHUNK == 0 and x < numBatchAuctions) then			-- analyze fast scan data in chunks so as not to cause client to timeout?
 				gFullScanPosition = x + 1;
 				return;
 			end
@@ -288,17 +289,17 @@ function Atr_FullScanUpdateDB()
 
 	gAtr_FullScanState = ATR_FS_UPDATING_DB
 	
-	zz ("Updating")
+	zz ("Updating DB")
 
 	local numEachQual = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 	local totalItems = 0;
 	local numRemoved = { 0, 0, 0, 0, 0, 0, 0, 0 };
 	
-	for name,newprice in pairs (lowprices) do
+	for name,newprice in pairs (gLowPrices) do
 		
 		if (newprice < BIGNUM) then
 		
-			local qx = qualities[name] + 1;
+			local qx = gQualities[name] + 1;
 			
 			if (qx == nil or numEachQual[qx] == nil) then
 				zz ("ERROR: numEachQual[qx] == nil,  qx: ", qx, " name: ", name, " totalItems: ", totalItems);
@@ -365,7 +366,7 @@ function Atr_FullScanUpdateDB()
 	
 	Atr_ClearBrowseListings();
 	
-	lowprices = {};
+	gLowPrices = {};
 
 	collectgarbage ("collect");
 	
