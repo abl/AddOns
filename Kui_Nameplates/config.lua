@@ -26,6 +26,12 @@ do
 
     -- called by handler:Set when configuration is changed
     local function ConfigChangedSkeleton(mod, key, profile)
+        if mod.configChangedListener then
+            -- notify that any option has changed
+            mod:configChangedListener()
+        end
+
+        -- call option specific callbacks
         if mod.configChangedFuncs.runOnce and
            mod.configChangedFuncs.runOnce[key]
         then
@@ -473,6 +479,11 @@ do
     function addon:CreateConfigChangedListener(module)
         if module.configChangedFuncs and not module.ConfigChanged then
             module.ConfigChanged = ConfigChangedSkeleton
+        end
+
+        if module.configChangedListener then
+            -- run listener upon initialisation
+            module:configChangedListener()
         end
     end
 

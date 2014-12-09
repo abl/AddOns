@@ -14,15 +14,14 @@ kui.m = {
 		shadow	= media .. 't\\shadowBorder',
 		rounded	= media .. 't\\solidRoundedBorder',
 	
+		-- textures
+		solid		= media .. 't\\solid',
+		innerShade	= media .. 't\\innerShade',
+		
 		-- progress bars
 		bar		= media .. 't\\bar',
 		oldbar  = media .. 't\\bar-old',
 		sbar	= media .. 't\\barSmall',
-
-		-- other textures
-		solid		= media .. 't\\solid',
-		innerShade	= media .. 't\\innerShade',
-		arrow       = media .. 't\\arrow',
 
 		empty = media..'t\\empty',
 	},

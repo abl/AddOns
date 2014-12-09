@@ -165,6 +165,9 @@ do
             -- force the registered f for this name to change
             loadedNames[f.name.text] = nil
         end
+
+        --print('got GUID for: '..f.name.text.. '; '..f.guid)
+        addon:SendMessage('KuiNameplates_GUIDStored', f, unit)
     end
     function addon:StoreName(f)
         if not f.name.text or f.guid then return end
